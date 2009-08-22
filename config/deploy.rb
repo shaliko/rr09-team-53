@@ -28,7 +28,7 @@ namespace :deploy do
   task :after_symlink, :roles => [:app, :db, :web] do
     #copy config
     run "cp #{current_path}/config/deploy/database.yml #{current_path}/config/database.yml"
-    #run "cp #{current_path}/config/deploy/settings.yml #{current_path}/config/settings.yml"
+    run "cp #{current_path}/config/deploy/settings.yml #{current_path}/config/settings.yml"
   end
 
   desc "Restart Passenger"
