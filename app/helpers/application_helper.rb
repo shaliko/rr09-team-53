@@ -19,4 +19,9 @@ module ApplicationHelper
     content_for(:head_title) { strip_tags(page_title) }
 	end
 
+  def pdf_image_tag(image, options = {})
+    options[:src] = File.expand_path(RAILS_ROOT) + '/public/images/' + image
+    tag(:img, options)
+  end
+
 end

@@ -1,0 +1,71 @@
+--- !ruby/object:Gem::Specification 
+name: htmldoc
+version: !ruby/object:Gem::Version 
+  version: 0.2.1
+platform: ruby
+authors: 
+- Ronaldo M. Ferraz
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2008-09-02 00:00:00 +04:00
+default_executable: 
+dependencies: []
+
+description: PDF::HTMLDoc is a wrapper around HTMLDOC, an open-source application that converts HTML input files into formatted HTML, PDF or PostScript output.
+email: ronaldo@reflectivesurface.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- CHANGELOG.txt
+- History.txt
+- LICENSE.txt
+- Manifest.txt
+- README.txt
+files: 
+- CHANGELOG.txt
+- History.txt
+- LICENSE.txt
+- Manifest.txt
+- README.txt
+- Rakefile
+- init.rb
+- lib/htmldoc.rb
+- lib/htmldoc/version.rb
+- setup.rb
+- test/basic_test.rb
+- test/generation_test.rb
+- test/test_helper.rb
+has_rdoc: true
+homepage: http://htmldoc.rubyforge.org
+post_install_message: 
+rdoc_options: 
+- --main
+- README.txt
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: htmldoc
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 2
+summary: A wrapper around HTMLDOC, a PDF generation utility
+test_files: 
+- test/basic_test.rb
+- test/generation_test.rb
