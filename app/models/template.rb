@@ -39,7 +39,7 @@ class Template < ActiveRecord::Base
   end
 
   named_scope :search, lambda { |query_string|
-    { :conditions => ["title LIKE ? OR body_html LIKE ?", "%#{query_string}%", "%#{query_string}%"]}
+    { :conditions => ["(title LIKE ? OR body_html LIKE ?) AND private = ?", "%#{query_string}%", "%#{query_string}%", false]}
   }
 
 end
