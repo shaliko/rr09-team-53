@@ -1,0 +1,15 @@
+<fieldset>
+  <legend></legend>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 20, :class => 'fullwidth' -%>
+  </div>
+  <div>
+    <%= f.label :body_markdown, 'Body' %>
+    <%= f.textarea :body_markdown, :size => '70x20', :class => 'fullwidth' -%>
+  </div>
+  <div class="controlset">
+    <%= f.label :private, 'This is private template?' %>
+    <%= f.check_box :private -%>
+  </div>
+</fieldset>

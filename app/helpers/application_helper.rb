@@ -2,9 +2,13 @@
 module ApplicationHelper
   # Flash messages block
   def flash_messages
-    messages = []
+    messages = ''
     %w(notice warning error).each do |msg|
-      messages << content_tag(:div, html_escape(flash[msg.to_sym]), :id => "flash-#{msg}", :class => "flash #{msg}") unless flash[msg.to_sym].blank?
+      messages += content_tag(:div, html_escape(flash[msg.to_sym]), :class => "#{msg}") unless flash[msg.to_sym].blank?
+    end
+    unless messages.blank?
+      messages = content_tag(:div, messages, :id=> 'flash', :class => 'flash')
+      messages += '<script type="text/javascript">new Effect.Fade($("flash"), { duration:0.5, delay:2 })</script>'
     end
     messages
   end

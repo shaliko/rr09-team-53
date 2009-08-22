@@ -192,6 +192,26 @@ dd {}
 /* ------------------------------------------------------------------------
    = Page styling
    ------------------------------------------------------------------------- */
+.flash {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:15px 0;
+    background-color:#FFC;
+    border-bottom:#f1f1ba 1px solid;
+    font-size:1.2em;
+}
+.flash div {
+    width:40%;
+    padding:5px 0;
+    margin:0 auto;
+    background-color:#FFF;
+    border:#f1f1ba 1px solid;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    text-align:center;
+}
 .page {
     padding:45px 70px;
     border:#d5cab6 1px solid;
