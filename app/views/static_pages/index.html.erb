@@ -4,10 +4,11 @@
     <dl>
       <dt><span>Recently updated</span></dt>
       <dd>
+        <%- for template in Template.all.public.last_updated -%>
         <ul>
-          <li><a href=""">User 1</a> / <a href=""">Document 1</a></li>
-          <li><a href=""">User 2</a> / <a href=""">Document 2</a></li>
+          <li><%= link_to h(template.title), user_template_path(template.user, template) -%> by <%= link_to h(user.username), user_path(user) -%></li>
         </ul>
+        <%- end -%>
       </dd>
     </dl>
   </div>

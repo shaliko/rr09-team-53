@@ -1,23 +1,37 @@
   <%- title "#{gravatar_tag(user)} #{user.username}" -%>
 
-  <% if current_user != user %>
-    <span id="friendship_button_<%= user.id -%>">
-      <%= relation_button(current_user, user) %>
-    </span>
-  <% end  %>
+  <%- if current_user != user -%>
+    <%- content_for :toolbox do -%>
+    <ul>
+      <li><span id="friendship_button_<%= user.id -%>"><%= relation_button(current_user, user) %></span></li>
+    </ul>
+    <%- end -%>
+        
+  <%- end -%>
   <div class="common-container">
     <div class="container-left-half-column">
+      <%- unless user.templates.blank? -%>
       <dl>
         <dt><span>Last updated templates</span></dt>
         <dd>
           <ul>
-            <li>...</li>
+            <%- for template in (is_owner?(user) ? user.templates : user.templates.public).last_updated -%>
+            <li><%= link_to h(template.title), user_template_path(user, template) -%>, updated at <%= template.updated_at.strftime('%m/%d/%Y') -%></li>
+            <%- end -%>
           </ul>
         </dd>
       </dl>
       <p>
         <%= link_to 'Add new', new_user_template_path(user), :class => 'button' -%> or <%= link_to "View all templates (#{user.templates_count})", user_templates_path(user) -%>
       </p>
+      <%- else -%>
+        <%- if is_owner?(user) -%>
+          <p>You don't have any template yet.</p>
+          <p>Try to <%= link_to 'add new one', new_user_template_path(current_user), :class => 'button' -%></p>
+        <%- else -%>
+          <p>Looks like this user doesn't have any template yet.</p>
+        <%- end -%>
+      <%- end -%>
 
       <dl>
         <dt><span>Your last documents</span></dt>
@@ -33,21 +47,21 @@
     </div>
     <div class="container-left-half-column">
       <h4>Following</h4>
-      <ul>
-        <% for friendship in user.friendships %>
-          <li>
-            <%= link_to(gravatar_tag(friendship.friend), user_path(friendship.friend)) %>
-          </li>
-        <% end %>
+      <%- unless user.friendships.blank? -%>
+      <ul class="flat">
+        <%- for friendship in user.friendships -%>
+          <li><%= gravatar_link_to(friendship.friend, {:size => 24}) -%></li>
+        <%- end -%>
       </ul>
+      <%- end -%>
       <h4>Followers</h4>
-      <ul>
+      <%- unless user.friendships.blank? -%>
+      <ul class="flat">
         <% for friendship in user.inverse_friendships %>
-          <li>
-            <%= link_to(gravatar_tag(friendship.user), user_path(friendship.user)) %>
-          </li>
-        <% end %>
+          <li><%= gravatar_link_to(friendship.user, {:size => 24}) -%></li>
+        <%- end -%>
       </ul>
+      <%- end -%>
       <h4>News feed</h4>
       <p>List of activities of followed users.</p>
       <ul>
