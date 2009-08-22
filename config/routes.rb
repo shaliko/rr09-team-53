@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :has_many => :templates
 
   map.resources :password_resets
+  map.resources :friendships
 
   #static pages
   map.about 'about', :controller => 'static_pages', :action => 'about'

@@ -6,7 +6,7 @@ class CreateFriendships < ActiveRecord::Migration
       t.integer :friend_id
       t.timestamps
     end
-    add_index(:users, [:user_id, :friend_id])
+    add_index(:friendships, [:user_id, :friend_id])
   end
 
   def self.down

@@ -1,0 +1,1 @@
+page.replace_html "friendship_button", :partial => "shared/unfollow_button", :locals => {:user => @friendship.friend}

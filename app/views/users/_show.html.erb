@@ -1,0 +1,44 @@
+  <%- title "#{gravatar_tag(user)} #{user.username}" -%>
+
+  <% if current_user != user %>
+    <span id="friendship_button"><%= link_to_remote 'follow', :url => friendships_path(:friend_id => user), :method => :post,  :html => {:class => 'button'} -%></span>
+  <% end  %>
+  <div class="common-container">
+    <div class="container-left-half-column">
+      <dl>
+        <dt><span>Last updated templates</span></dt>
+        <dd>
+          <ul>
+            <li>...</li>
+          </ul>
+        </dd>
+      </dl>
+      <p>
+        <%= link_to 'Add new', new_user_template_path(user), :class => 'button' -%> or <%= link_to "View all templates (#{user.templates_count})", user_templates_path(user) -%>
+      </p>
+
+      <dl>
+        <dt><span>Your last documents</span></dt>
+        <dd>
+          <ul>
+            <li>...</li>
+          </ul>
+        </dd>
+      </dl>
+      <p>
+        <%= link_to "View all documents", user_templates_path(user) -%>
+      </p>
+    </div>
+    <div class="container-left-half-column">
+      <h4>Following</h4>
+      <ul>
+        <li>...</li>
+      </ul>
+      <h4>News feed</h4>
+      <p>List of activities of followed users.</p>
+      <ul>
+        <li>...</li>
+      </ul>
+    </div>
+    <br class="clearboth" />
+  </div>

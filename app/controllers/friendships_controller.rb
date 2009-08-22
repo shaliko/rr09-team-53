@@ -9,11 +9,13 @@ class FriendshipsController < ApplicationController
           flash[:notice] = "Added friend."
           redirect_to root_url
         end
+        format.js
       else
         format.html do
           flash[:error] = "Unable to add friend."
           redirect_to root_url
         end
+        format.js
       end
     end
   end
