@@ -10,9 +10,9 @@
         google.load("scriptaculous", "1.8");
       </script>
       <%= javascript_include_tag 'application' -%>
-    <% else -%>
+    <%- else -%>
       <%= javascript_include_tag :defaults -%>
-    <% end -%>
+    <%- end -%>
     <title><%= yield(:title) -%> ~ DocHub</title>
   </head>
   <body>
@@ -30,14 +30,7 @@
       </div>
       <br class="clearboth" />
     </div>
-    <div id="page-body" class="">
-      <div class="main-container">
-        <div class="page">
-          <h1><%= yield :title -%></h1>
-          <%= yield -%>
-        </div>
-      </div>
-    </div>
+    <%= render (current_page?(root_path) ? 'layouts/root_page' : 'layouts/common_page') -%>
     <div id="page-footer" class="main-container">
       <div class="container-left-column">
         &copy&nbsp;2009, Alex Soulim and Shalva Usubov, <a href="http://hashtrain.com" target="_blank">hashtrain.com</a>
@@ -47,5 +40,25 @@
       </div>
       <br class="clearboth" />
     </div>
+    <%- if Rails.env.production? -%>
+    <script type="text/javascript">
+      var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
+      document.write(unescape("%3Cscript src='" + uservoiceJsHost + "/javascripts/widgets/tab.js' type='text/javascript'%3E%3C/script%3E"))
+    </script>
+    <script type="text/javascript">
+    UserVoice.Tab.show({
+      /* required */
+      key: 'dochub',
+      host: 'dochub.uservoice.com',
+      forum: '26880',
+      /* optional */
+      alignment: 'left',
+      background_color:'#f00',
+      text_color: 'white',
+      hover_color: '#06C',
+      lang: 'en'
+    })
+    </script>
+    <%- end -%>
   </body>
 </html>
