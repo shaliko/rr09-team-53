@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  is_gravtastic :email,
+    :rating => 'G',
+    :default => 'identicon'
+
   acts_as_authentic do |c|
     c.login_field            = :email
     c.openid_required_fields = [:nickname, :email]

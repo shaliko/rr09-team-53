@@ -23,7 +23,8 @@ Rails::Initializer.run do |config|
   config.gem "authlogic-oid", :lib => "authlogic_openid"
   config.gem "ruby-openid", :lib => "openid"
   config.gem "mislav-will_paginate",      :lib => "will_paginate",  :sourse => "http://gems.github.com"
-  
+  config.gem 'gravtastic', :version => '>= 2.1.0'
+
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]

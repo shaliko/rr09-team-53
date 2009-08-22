@@ -19,16 +19,46 @@
   </div>
   <br class="clearboth" />
 <%- else -%>
-<%- title current_user.email -%>
-  <dl>
-    <dt>Last updated templates</dt>
-    <dd>
+  <%- title current_user.email -%>
+  <%= image_tag @user.gravatar_url %>
+
+  <div class="common-container">
+    <div class="container-left-half-column">
+      <dl>
+        <dt><span>Last updated templates</span></dt>
+        <dd>
+          <ul>
+            <li>...</li>
+          </ul>
+        </dd>
+      </dl>
+      <p>
+        <%= link_to 'Add new', new_user_template_path(current_user), :class => 'button' -%> or <%= link_to 'View all templates', user_templates_path(current_user) -%>
+      </p>
+
+      <dl>
+        <dt><span>Your last documents</span></dt>
+        <dd>
+          <ul>
+            <li>...</li>
+          </ul>
+        </dd>
+      </dl>
+      <p>
+        <%= link_to 'View all templates', user_templates_path(current_user) -%>
+      </p>
+    </div>
+    <div class="container-left-half-column">
+      <h4>Following</h4>
       <ul>
         <li>...</li>
       </ul>
-    </dd>
-  </dl>
-  <p>
-    <%= link_to 'Add new', user_templates_path(@user), :class => 'button' -%> or <%= link_to 'View all templates', user_templates_path(@user) -%>
-  </p>
+      <h4>News feed</h4>
+      <p>List of activities of followed users.</p>
+      <ul>
+        <li>...</li>
+      </ul>
+    </div>
+    <br class="clearboth" />
+  </div>
 <%- end -%>
