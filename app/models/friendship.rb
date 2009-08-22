@@ -8,4 +8,5 @@ class Friendship < ActiveRecord::Base
   def log_in_feed
     Feed.create(:user => self.user, :subject => self.friend, :event_type => Feed::Types::FOLLOW)
   end
+
 end

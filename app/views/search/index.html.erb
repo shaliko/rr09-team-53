@@ -1,0 +1,17 @@
+<%- title "Search" -%>
+
+<%- unless @templates.blank? -%>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <th width="70%">Title</th>
+    </tr>
+    <%- for template in @templates -%>
+      <tr>
+        <td><%= link_to h(template.title), user_template_path(template.user, template) -%></td>
+      </tr>
+    <%- end -%>
+  </table>
+  <%= will_paginate @templates %>
+<%- else -%>
+  <p>List is empty.</p>
+<%- end -%>
