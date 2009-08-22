@@ -1,0 +1,11 @@
+development: &non_production_settings
+  hosts: localhost:3000
+
+test:
+  <<: *non_production_settings
+
+staging:
+  hosts: localhost:3000
+
+production:
+  hosts: dochub.r09.railsrumble.com

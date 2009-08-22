@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
     c.openid_required_fields = [:nickname, :email]
   end
 
+  validates_presence_of :username
+
   def deliver_password_reset_instructions!  
     reset_perishable_token!
     Notifier.deliver_password_reset_instructions(self)

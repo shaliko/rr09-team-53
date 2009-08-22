@@ -5,11 +5,11 @@
   <%= f.error_messages %>
   <fieldset>
     <legend></legend>
-    <div>
+    <div class="required">
       <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
-    <div>
+    <div class="required">
       <%= f.label :password %>
       <%= f.password_field :password %>
     </div>
@@ -20,7 +20,7 @@
 
   <fieldset>
     <legend>Or use OpenID</legend>
-    <div>
+    <div class="required">
       <%= f.label :openid_identifier, "OpenID URL" %>
       <%= f.text_field :openid_identifier %>
     </div>
