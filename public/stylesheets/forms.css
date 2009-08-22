@@ -1,0 +1,222 @@
+/* ------------------------------------------------------------------------
+   = Forms styling
+   ------------------------------------------------------------------------- */
+  .container-form { }
+    .container-form .errorExplanation {
+      padding:5px;
+      margin-bottom:1em;
+      font-size:.9em;
+      background-color:#FFC;
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+      }
+      .errorExplanation h2 {
+        font-size:2em;
+        color:#C00;
+        border:none;
+        }
+      .errorExplanation p { }
+      .errorExplanation ul {
+        padding:10px 15px;
+        margin:5px;
+        background-color:#FFF;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        }
+    .container-form fieldset {
+      padding:.5em 0;
+      }
+    .container-form legend {
+      display:block;
+      width:100%;
+      border-top:#CCC 1px dotted;
+      padding:5px 0;
+      margin:0;
+      font-size:1.4em;
+      /*text-align:center;*/
+      }
+    .container-form fieldset div {
+      position:relative;
+      padding:2px 10px;
+      margin:.3em;
+      }
+    .container-form .fieldWithErrors {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+      .container-form .fieldWithErrors label {
+        }
+      .container-form .fieldWithErrors input,
+      .container-form .fieldWithErrors textarea,
+      .container-form .fieldWithErrors select {
+        border:#B00 1px solid;
+        }
+    .container-form label,
+    .container-form .label {
+      display:block;
+      margin:0;
+      padding:0;
+      font-weight:bold;
+      font-size:1.1em;
+      color:#5c5c5c;
+      }
+      .container-form label em {
+        vertical-align:middle;
+        font-weight:bold;
+        font-style:normal;
+        margin-right:10px;
+        color:#B00;
+        }
+    .container-form input,
+    .container-form textarea,
+    .container-form select {
+      padding:5px;
+      border:#BBB 1px solid;
+      }
+
+    .container-form .comment {
+      padding:2px 5px;
+      margin:0;
+      font-size:.9em;
+      font-style:normal;
+      color:#888;
+      }
+    .container-form .controlset { }
+      .container-form .controlset label {
+        display:inline;
+        vertical-align:middle;
+        font-weight:normal;
+        }
+      .container-form .controlset input {
+        margin:0 5px;
+        padding:0;
+        vertical-align:middle;
+        }
+
+    .container-form .buttonrow {
+      border-top:#FC6 2px solid;
+      padding:7px 10px;
+      background:#FFC;
+      text-align:right;
+      }
+      .buttonrow a {
+        font-weight:bold;
+        }
+    .container-form .fullwidth,
+    .container-form .code-editor {
+      width:95%;
+      }
+    .container-form .field-addon {
+      color:#888;
+      }
+    .container-form .block-label { }
+    .container-form .inline-label { }
+      .container-form .inline-label label {
+        display:inline-block;
+        width:24%;
+        background:#f5f5f5;
+        padding:5px 3px;
+        -moz-border-radius:2px;
+        -webkit-border-radius:2px;
+        }
+      .container-form .inline-label .fullwidth {
+        width:70%;
+        }
+      .container-form .inline-label .comment {
+        margin-left:26%;
+        }
+/* ------------------------------------------------------------------------
+   = Buttons styling
+   ------------------------------------------------------------------------- */
+  .button,
+  .buttonrow input,
+  .buttonrow a.button {
+    display:inline-block;
+    line-height:1.5em;
+    background:#FFFFFF url(/images/button_bg.gif) left top repeat-x;
+    border-color:#DDDDDD #AAAAAA #AAAAAA #DDDDDD;
+    border-style:solid;
+    border-width:1px;
+    font-size:12px;
+    font-weight:bold;
+    text-align:center;
+    text-shadow: 0 1px 1px #fff;
+    text-decoration:none;
+    color:#777;
+    outline-color:-moz-use-text-color;
+    outline-style:none;
+    outline-width:medium;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    }
+  .button {
+    font-size:12px;
+    text-shadow: 0 1px 1px #FFF;
+    }
+  .button:hover,
+  .buttonrow input:hover,
+  .buttonrow a.button:hover {
+    background-position:left -48px;
+    color:#666666;
+    }
+  .button:active,
+  .buttonrow input:active,
+  .buttonrow a.button:active {
+    background-position:left -38px;
+    color:#666666;
+    }
+  a.button,
+  .buttonrow a.button {
+    height:19px;
+    /*padding:5px;
+    vertical-align:middle;*/
+    padding:5px 10px 4px 10px; /* Links */
+    }
+  input.button,
+  .buttonrow input {
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 4px 10px; /* IE6 */
+    cursor:pointer;
+    }
+  input[type].button,
+  .buttonrow input[type] {
+    padding:6px 10px 8px 10px; /* Firefox */
+    line-height:12px; /* Safari */
+    }
+  *:first-child+html input[type].button,
+  *:first-child+html .buttonrow input[type] {
+    padding:4px 10px 4px 10px; /* IE7 */
+    }
+
+  /* BUTTON COLORS */
+  /* STANDARD */
+  .buttonrow input:hover {
+    }
+  /* POSITIVE */
+  .buttonrow input.positive,
+  .buttonrow a.positive {
+    color:#529214;
+    }
+  .buttonrow input.positive:hover {
+    color:#529214;
+    }
+  .buttonrow a.positive:hover {
+    color:#72cb1d;
+    }
+  /* NEGATIVE */
+  .buttonrow input.negative,
+  .buttonrow a.negative {
+    color:#d12f19;
+    }
+  .buttonrow input.negative:hover {
+    color:#d12f19;
+    }
+  .buttonrow a.negative:hover {
+    color:#ff5038;
+    }
+  .buttonrow a:hover {
+    color:#777;
+    background-color:transparent;
+    }

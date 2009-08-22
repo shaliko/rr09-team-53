@@ -1,0 +1,242 @@
+* {
+  margin:0;
+  padding:0;
+  }
+html,
+body {
+  margin:0;
+  padding:0;
+  }
+body {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+  color:#000;
+  background:#FFF none;
+  }
+h1 {
+  font:normal normal normal 4.4em Georgia, Times, "Times New Roman", serif;
+  color:#000;
+  padding-bottom:.2em;
+  margin-bottom:.2em;
+  line-height:1;
+  letter-spacing:-1px;
+  text-shadow: 0 1px 1px #fff;
+  border-bottom:#bfbdbd 1px solid;
+  }
+h2 {
+  font:normal normal normal 3em Georgia, Times, "Times New Roman", serif;
+  color:#000;
+  padding-bottom:.2em;
+  margin-bottom:1em;
+  text-shadow: 0 1px 1px #fff;
+  }
+h3 {
+  font:normal normal normal 2em Arial, Helvetica, sans-serif;
+  color:#000;
+  line-height:1;
+  margin-bottom:.5em;
+  text-shadow: 0 1px 1px #fff;
+  }
+h4 {
+  font:normal normal normal 1.6em Arial, Helvetica, sans-serif;
+  color:#888;
+  padding-bottom:.3em;
+  line-height:1em;
+  }
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
+  color:#2182AB;
+  background:transparent;
+  }
+p,
+ul,
+ol,
+table,
+label,
+dt,
+span.label {
+  font-size:1.4em;
+  margin-bottom:1em;
+  }
+ul,
+ol {
+  list-style-position:inside;
+  }
+ul {
+  list-style-type:disc;
+  }
+li {
+    margin-bottom:.2em;
+}
+ul li ol,
+ol li ul {
+  font-size:1em;
+  padding-bottom:0;
+  padding-left:1em;
+  }
+ul.flat {
+
+}
+ul.flat li {
+    display:inline-block;
+    width:auto;
+    height:auto;
+    padding:0 1em 0 0;
+    list-style:none outside none;
+}
+a {
+  /*color:#eb8633;*/
+  color:#554865;
+  }
+a:hover {
+  text-decoration:none;
+  }
+a img {
+  border:0;
+  vertical-align:middle;
+  }
+a:hover img {
+  background-color:transparent;
+  }
+table {
+  border-collapse:collapse;
+  }
+  caption {
+    font-size:1.4em;
+    padding-bottom:.3em;
+    color:#A9AAB6;
+    }
+  thead {
+    background:#68A221;
+    color:#C4DA8E;
+    }
+    thead tr {
+      }
+    thead th {
+      padding:.5em;
+      }
+  tfoot {
+    background:#F2F2F2;
+    }
+    tfoot td {
+      padding:1em .5em;
+      border-top:#D2D3D4 2px solid;
+      }
+  tbody {
+    }
+    tbody td {
+      border-bottom:#D2D3D4 1px solid;
+      }
+  td,
+  th {
+    padding:.3em .5em;
+    }
+dl {}
+dt {
+    padding:0 0 .5em 0;
+    margin:0;
+}
+dt span {
+    display:inline-block;
+    padding:3px 6px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    color:#FFF;
+    background:#f3a36b;
+}
+dd {}
+/* ------------------------------------------------------------------------
+   = Common classes
+   ------------------------------------------------------------------------- */
+.clearboth {
+  clear:both;
+}
+.text-center {
+  text-align:center;
+}
+.text-right {
+  text-align:right;
+}
+.text-striked {
+  text-decoration:line-through;
+}
+.main-container {
+    width:80%;
+    height:auto;
+    min-width:850px;
+    margin:0 auto;
+}
+.container-left-column {
+    width:40%;
+    float:left;
+}
+.container-right-column {
+    width:60%;
+    float:right;
+}
+.container-left-half-column {
+    width:48%;
+    float:left;
+}
+.container-right-half-column {
+    width:48%;
+    float:right;
+}
+.container-one-column {
+    width:90%;
+    height:auto;
+    padding:0 0 5em 0;
+    margin:0 auto;
+}
+/* ------------------------------------------------------------------------
+   = Page styling
+   ------------------------------------------------------------------------- */
+.page {
+    padding:45px 70px;
+    border:#d5cab6 1px solid;
+    background:#FFF;
+}
+/* ------------------------------------------------------------------------
+   = Page blocks styling
+   ------------------------------------------------------------------------- */
+#page-header {
+    padding:20px 0 15px 0;
+}
+#menu-lev1 {
+    margin:0;
+    padding:15px 0 0 0;
+    font-weight:bold;
+}
+#menu-lev1 li {
+    display:inline-block;
+    margin:0 .5em 0 0;
+    padding:0;
+    list-style:none outside none;
+}
+#menu-lev1 li a {
+    color:#cd5b51;
+}
+#page-body {
+    padding:30px 0;
+    background:#e9dfcc;
+}
+#page-footer {
+    padding:20px 0;
+    font-size:1.1em;
+    color:#999;
+}
+#mainpage-body {
+    padding:0;
+    background:#e9dfcc;
+}
+#mainpage-page-header {
+    padding:60px 0;
+    font-size:4.2em;
+    line-height:1;
+    color:#FFF;
+    background:#554865;
+}
+#mainpage-page {
+    padding:35px 0;
+}
