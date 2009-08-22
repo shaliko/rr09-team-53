@@ -10,29 +10,30 @@
   <%- end -%>
   <div class="common-container">
     <div class="container-left-half-column">
-      <%- unless user.templates.blank? -%>
+      <%- unless user.doclates.blank? -%>
       <dl>
-        <dt><span>Last updated templates</span></dt>
+        <dt><span>Last updated doclates</span></dt>
         <dd>
           <ul>
-            <%- for template in (is_owner?(user) ? user.templates : user.templates.public).last_updated -%>
-            <li><%= link_to h(template.title), user_template_path(user, template) -%>, updated at <%= template.updated_at.strftime('%m/%d/%Y') -%></li>
+            <%- for doclate in (is_owner?(user) ? user.doclates : user.doclates.public).last_updated -%>
+            <li><%= link_to h(doclate.title), user_doclate_path(user, doclate) -%>, updated at <%= doclate.updated_at.strftime('%m/%d/%Y') -%></li>
             <%- end -%>
           </ul>
         </dd>
       </dl>
       <p>
-        <%= link_to 'Add new', new_user_template_path(user), :class => 'button' -%> or <%= link_to "View all templates (#{user.templates_count})", user_templates_path(user) -%>
+        <%= link_to 'Add new doclate', new_user_doclate_path(user), :class => 'button' -%> or <%= link_to "View all (#{user.doclates_count})", user_doclates_path(user) -%>
       </p>
       <%- else -%>
         <%- if is_owner?(user) -%>
-          <p>You don't have any template yet.</p>
-          <p>Try to <%= link_to 'add new one', new_user_template_path(current_user), :class => 'button' -%></p>
+          <p>You don't have any doclate yet.</p>
+          <p>Try to <%= link_to 'add new one', new_user_doclate_path(current_user), :class => 'button' -%></p>
         <%- else -%>
-          <p>Looks like this user doesn't have any template yet.</p>
+          <p>Looks like this user doesn't have any doclate yet.</p>
         <%- end -%>
       <%- end -%>
 
+      <%- if is_owner?(user) -%>
       <dl>
         <dt><span>Your last documents</span></dt>
         <dd>
@@ -42,8 +43,9 @@
         </dd>
       </dl>
       <p>
-        <%= link_to "View all documents", user_templates_path(user) -%>
+        <%= link_to "View all documents", '#' -%>
       </p>
+      <%- end -%>
     </div>
     <div class="container-left-half-column">
       <h4>Following</h4>
@@ -53,14 +55,18 @@
           <li><%= gravatar_link_to(friendship.friend, {:size => 24}) -%></li>
         <%- end -%>
       </ul>
+      <%- else -%>
+      <p><%= is_owner?(user) ? 'You don\'t' : "#{user.username} doesn't" -%> have any favourite person yet.</p>
       <%- end -%>
       <h4>Followers</h4>
-      <%- unless user.friendships.blank? -%>
+      <%- unless user.inverse_friendships.blank? -%>
       <ul class="flat">
         <% for friendship in user.inverse_friendships %>
           <li><%= gravatar_link_to(friendship.user, {:size => 24}) -%></li>
         <%- end -%>
       </ul>
+      <%- else -%>
+      <p>No one is following for <%= is_owner?(user) ? 'you' : "#{user.username.capitalize} doesn't" -%> yet.</p>
       <%- end -%>
       <h4>News feed</h4>
       <p>List of activities of followed users.</p>
@@ -69,8 +75,8 @@
           <li>
             <%= link_to feed.user.username, user_path(feed.user) -%>
             <%= feed.event_type -%>
-            <% if feed.subject.class.to_s == 'Template' %>
-              <%= link_to "\"#{feed.subject.title}\"", user_template_path(feed.subject.user, feed.subject) -%>
+            <% if feed.subject.is_a?(Doclate) %>
+              <%= link_to "\"#{feed.subject.title}\"", user_doclate_path(feed.subject.user, feed.subject) -%>
             <% elsif feed.subject.is_a?(User) %>
               <%= link_to feed.subject.username, user_path(feed.subject) -%>
             <% end %>

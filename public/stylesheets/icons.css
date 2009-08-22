@@ -37,3 +37,12 @@ input.icon {
 .info {
 	background-image: url(/images/icons/information.png);
 	}
+.copy {
+	background-image: url(/images/icons/information.png);
+	}
+.follow {
+	background-image: url(/images/icons/heart.png);
+	}
+.unfollow {
+	background-image: url(/images/icons/heart_broken.png);
+	}

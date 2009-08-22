@@ -1,6 +1,6 @@
-class CreateTemplates < ActiveRecord::Migration
+class CreateDoclates < ActiveRecord::Migration
   def self.up
-    create_table :templates do |t|
+    create_table :doclates do |t|
       t.belongs_to  :user
       t.integer     :parent_id
       t.string      :title
@@ -9,13 +9,13 @@ class CreateTemplates < ActiveRecord::Migration
       t.boolean     :private, :default => false
       t.timestamps
     end
-    add_index :templates, :user_id
-    add_index :templates, :parent_id
-    add_index :templates, :private
+    add_index :doclates, :user_id
+    add_index :doclates, :parent_id
+    add_index :doclates, :private
   end
 
   def self.down
-    drop_table :templates
+    drop_table :doclates
   end
 
 end

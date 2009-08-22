@@ -1,4 +1,4 @@
-class Template < ActiveRecord::Base
+class Doclate < ActiveRecord::Base
   belongs_to :user, :counter_cache => true
   belongs_to :parent, :class_name => 'Template', :foreign_key => 'id'
 
@@ -9,7 +9,6 @@ class Template < ActiveRecord::Base
 
   before_save :parse_markdown
 
-  default_scope :order => '`templates`.created_at DESC'
   named_scope :public, :conditions => {:private => false}
   named_scope :last_updated, :order => "updated_at DESC", :limit => 5
 

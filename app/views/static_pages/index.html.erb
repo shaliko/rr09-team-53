@@ -4,9 +4,9 @@
     <dl>
       <dt><span>Recently updated</span></dt>
       <dd>
-        <%- for template in Template.all.public.last_updated -%>
+        <%- for doclate in Doclate.public.last_updated -%>
         <ul>
-          <li><%= link_to h(template.title), user_template_path(template.user, template) -%> by <%= link_to h(user.username), user_path(user) -%></li>
+          <li><%= link_to h(doclate.title), user_doclate_path(doclate.user, doclate) -%> by <%= link_to h(doclate.user.username), user_path(doclate.user) -%></li>
         </ul>
         <%- end -%>
       </dd>
@@ -15,8 +15,8 @@
   <div class="container-right-half-column">
     <p>With this service you can create documents using handy autofill function.</p>
 
-    <p>Any registered user can create doc-template with "magic gaps", and then fill these gaps with wizard. <em>Anytime.</em></p>
-    <p>Or any user can find doc-template in public repository, fork them and use later.</p>
+    <p>Any registered user can create doclate ("document template") with "magic fields", and then fill these fields with wizard. <em>Anytime.</em></p>
+    <p>Or any user can find doclate in public repository, copy them and use later.</p>
   </div>
   <br class="clearboth" />
 <%- else -%>

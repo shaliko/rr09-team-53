@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :templates, :dependent => :destroy
+  has_many :doclates, :dependent => :destroy
   
   is_gravtastic :email,
     :rating   => 'G',

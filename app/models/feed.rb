@@ -1,12 +1,12 @@
 class Feed < ActiveRecord::Base
   module Types
-    CREATE_TEMPLATE = 'create' # [user] [create] [template]
-    UPDATE_TAMPLATE = 'update' # [user] [update] [template]
-    DELETE_TEMPLATE = 'delete' # [user] [delete] [template_title]
-    FORK_TEMPLATE   = 'fork'   # [user] [fork]   [template]
-    FOLLOW          = 'follow' # [user] [follow] [user]
+    CREATE_DOCLATE = 'create' # [user] [create] [doclate]
+    UPDATE_DOCLATE = 'update' # [user] [update] [doclate]
+    DELETE_DOCLATE = 'delete' # [user] [delete] [doclate_title]
+    FORK_DOCLATE   = 'fork'   # [user] [fork]   [doclate]
+    FOLLOW         = 'follow' # [user] [follow] [user]
 
-    ALL = [CREATE_TEMPLATE, UPDATE_TAMPLATE, DELETE_TEMPLATE, FORK_TEMPLATE, FOLLOW]
+    ALL = [CREATE_DOCLATE, UPDATE_DOCLATE, DELETE_DOCLATE, FORK_DOCLATE, FOLLOW]
   end
 
   belongs_to :user

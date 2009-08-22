@@ -1,0 +1,19 @@
+<%- title "#{h(@doclate.title)}" -%>
+
+<%- content_for :toolbox do -%>
+  <ul>
+    <li><%= link_to 'Back to list', user_doclates_path(@user), :class => 'icon back' -%></li>
+  <%- if is_owner?(@user) -%>
+    <li><%= link_to 'Edit', edit_user_doclate_path(@user, @doclate), :class => 'icon edit' -%></li>
+    <li><%= link_to 'Delete', user_doclate_path(@user, @doclate), { :method => :delete, :confirm => "Do you realy want to delete #{html_escape(@doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
+  <%- end -%>
+  </ul>
+<%- end -%>
+
+<div class="copyblock">
+  <%= is_owner?(@user) ? 'You' : "#{gravatar_link_to(@doclate.user, {:size => 24})} #{link_to @doclate.user.username, user_path(@doclate.user)}" -%> has updated this doclate at <%= @doclate.updated_at.to_s(:long) -%>
+</div>
+
+<div class="body_html">
+  <%= @doclate.body_html -%>
+</div>
