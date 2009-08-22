@@ -43,3 +43,14 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+# Include your application configuration below
+ActionMailer::Base.smtp_settings = {
+  :tls              => 'true',
+  :address          => 'smtp.gmail.com',
+  :port             => 587,
+  :domain           => 'hashtrain.com',
+  :authentication   => :plain,
+  :user_name        => 'no_reply@hashtrain.com',
+  :password         => 'blbntyfabu'
+}
