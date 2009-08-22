@@ -20,7 +20,7 @@ role :app, "74.207.244.192"
 role :web, "74.207.244.192"
 role :db,  "74.207.244.192", :primary => true
 
-after "deploy:symlink", "deploy:update_crontab"
+#after "deploy:symlink", "deploy:update_crontab"
 
 namespace :deploy do
 
