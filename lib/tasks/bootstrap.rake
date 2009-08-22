@@ -18,7 +18,7 @@
       User.all.each do |user|
         friends = User.all(:conditions => ["id !=?", user.id], :limit => rand(User.count))
         friends.each do |friend|
-          user.friendships.create(:friend_id => friend.id) if friend != user
+          user.friendships.create(:friend_id => friend.id)
         end
       end
     end

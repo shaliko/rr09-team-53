@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
 
+  def feeds
+    Feed.all(:conditions => ["user_id IN (?)", self.friends], :include => [:user])
+  end
+
   def deliver_password_reset_instructions!  
     reset_perishable_token!
     Notifier.deliver_password_reset_instructions(self)

@@ -51,7 +51,14 @@
       <h4>News feed</h4>
       <p>List of activities of followed users.</p>
       <ul>
-        <li>...</li>
+        <% for feed in user.feeds %>
+          <li>
+            <%= link_to feed.user.username, user_path(feed.user) -%>
+            <%= feed.event_type -%>
+            <%= link_to feed.subject.username, user_path(feed.subject) -%>
+            <%= feed.created_at.strftime("%b %d, %Y") -%>
+          </li>
+        <% end  %>
       </ul>
     </div>
     <br class="clearboth" />

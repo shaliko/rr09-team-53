@@ -17,4 +17,5 @@ class CreateTemplates < ActiveRecord::Migration
   def self.down
     drop_table :templates
   end
+
 end
