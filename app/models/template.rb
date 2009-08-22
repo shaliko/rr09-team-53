@@ -38,4 +38,8 @@ class Template < ActiveRecord::Base
     "<span id=\"dochub-textfield-#{field_id}\" class=\"dochub-placeholder #{field_type}\" title=\"#{field_title}\">#{field_options}</span>"
   end
 
+  named_scope :search, lambda { |query_string|
+    { :conditions => ["title LIKE ? OR body_html LIKE ?", "%#{query_string}%", "%#{query_string}%"]}
+  }
+
 end

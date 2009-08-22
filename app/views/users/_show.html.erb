@@ -1,0 +1,65 @@
+  <%- title "#{gravatar_tag(user)} #{user.username}" -%>
+
+  <% if current_user != user %>
+    <span id="friendship_button_<%= user.id -%>">
+      <%= relation_button(current_user, user) %>
+    </span>
+  <% end  %>
+  <div class="common-container">
+    <div class="container-left-half-column">
+      <dl>
+        <dt><span>Last updated templates</span></dt>
+        <dd>
+          <ul>
+            <li>...</li>
+          </ul>
+        </dd>
+      </dl>
+      <p>
+        <%= link_to 'Add new', new_user_template_path(user), :class => 'button' -%> or <%= link_to "View all templates (#{user.templates_count})", user_templates_path(user) -%>
+      </p>
+
+      <dl>
+        <dt><span>Your last documents</span></dt>
+        <dd>
+          <ul>
+            <li>...</li>
+          </ul>
+        </dd>
+      </dl>
+      <p>
+        <%= link_to "View all documents", user_templates_path(user) -%>
+      </p>
+    </div>
+    <div class="container-left-half-column">
+      <h4>Following</h4>
+      <ul>
+        <% for friendship in user.friendships %>
+          <li>
+            <%= link_to(gravatar_tag(friendship.friend), user_path(friendship.friend)) %>
+          </li>
+        <% end %>
+      </ul>
+      <h4>Followers</h4>
+      <ul>
+        <% for friendship in user.inverse_friendships %>
+          <li>
+            <%= link_to(gravatar_tag(friendship.user), user_path(friendship.user)) %>
+          </li>
+        <% end %>
+      </ul>
+      <h4>News feed</h4>
+      <p>List of activities of followed users.</p>
+      <ul>
+        <% for feed in user.feeds %>
+          <li>
+            <%= link_to feed.user.username, user_path(feed.user) -%>
+            <%= feed.event_type -%>
+            <%= link_to feed.subject.username, user_path(feed.subject) -%>
+            <%= feed.created_at.strftime("%b %d, %Y") -%>
+          </li>
+        <% end  %>
+      </ul>
+    </div>
+    <br class="clearboth" />
+  </div>

@@ -1,0 +1,3 @@
+page.replace_html "friendship_button_#{@friendship.friend.id}", unfollow_button(@friendship)
+page << "new Insertion.Top($$('body').first(), '" + flash_messages + "');"
+flash.discard
