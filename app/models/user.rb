@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :templates, :dependent => :destroy
+  
+  is_gravtastic :email,
+    :rating   => 'G',
+    :default  => 'identicon',
+    :size     => 40
+
   acts_as_authentic do |c|
     c.login_field            = :email
     c.openid_required_fields = [:nickname, :email]

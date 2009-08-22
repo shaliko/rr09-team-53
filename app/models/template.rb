@@ -1,5 +1,5 @@
 class Template < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   belongs_to :parent, :class_name => 'Template', :foreign_key => 'id'
 
   attr_accessible :title, :body_markdown, :private

@@ -13,7 +13,7 @@
     <%- else -%>
       <%= javascript_include_tag :defaults -%>
     <%- end -%>
-    <title><%= yield(:title) -%> ~ DocHub</title>
+    <title><%= yield(:head_title) -%> ~ DocHub</title>
   </head>
   <body>
     <%= flash_messages -%>
