@@ -69,7 +69,11 @@
           <li>
             <%= link_to feed.user.username, user_path(feed.user) -%>
             <%= feed.event_type -%>
-            <%= link_to feed.subject.username, user_path(feed.subject) -%>
+            <% if feed.subject.class.to_s == 'Template' %>
+              <%= link_to "\"#{feed.subject.title}\"", user_template_path(feed.subject.user, feed.subject) -%>
+            <% elsif feed.subject.is_a?(User) %>
+              <%= link_to feed.subject.username, user_path(feed.subject) -%>
+            <% end %>
             <%= feed.created_at.strftime("%b %d, %Y") -%>
           </li>
         <% end  %>
