@@ -109,8 +109,8 @@ table {
     color:#A9AAB6;
     }
   thead {
-    background:#68A221;
-    color:#C4DA8E;
+    background:#554865;
+    color:#FFF;
     }
     thead tr {
       }
@@ -196,6 +196,37 @@ dd {}
     padding:0 0 5em 0;
     margin:0 auto;
 }
+.pagination {
+    font-size:1.2em;
+    text-align:center;
+    padding-top:2em;
+}
+.pagination a {
+    text-decoration:none;
+}
+.pagination a:hover {
+    background:#554865;
+    color:#FFF;
+}
+.pagination a, .pagination span {
+    padding:0 .3em;
+}
+.pagination .prev_page {
+}
+.pagination .current {
+    font-size:1.5em;
+    font-weight:bold;
+    color:#554865;
+}
+.pagination .disabled {
+    color:#AAA;
+}
+.pagination .next_page {
+}
+.round {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
 /* ------------------------------------------------------------------------
    = Page styling
    ------------------------------------------------------------------------- */
@@ -205,8 +236,8 @@ dd {}
     left:0;
     width:100%;
     padding:15px 0;
-    background-color:#FFC;
-    border-bottom:#f1f1ba 1px solid;
+    background-color:#ffe1a1;
+    border-bottom:#f9d68a 1px solid;
     font-size:1.2em;
 }
 .flash div {
@@ -214,7 +245,7 @@ dd {}
     padding:5px 0;
     margin:0 auto;
     background-color:#FFF;
-    border:#f1f1ba 1px solid;
+    border:#f9d68a 1px solid;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     text-align:center;
@@ -228,6 +259,39 @@ dd {}
     vertical-align:middle;
     border:#CCC 1px solid;
     padding:2px;
+}
+.toolbox {
+    width:100%;
+    height:1.2em;
+    margin:0;
+    padding:0;
+}
+.toolbox ul {
+    display:inline-block;
+    margin:0;
+    padding:0;
+    /*border-bottom:#BBB 1px solid;*/
+}
+.toolbox ul li {
+    display:inline-block;
+    list-style:none outside none;
+    padding:0;
+    margin:0 0 0 .5em;
+}
+.copyblock {
+    font-size:1.2em;
+    margin-bottom:1em;
+    color:#AAA;
+}
+.comment {
+    font-size:12px;
+    color:#ccc;
+}
+.dochub-placeholder {
+    /*display:inline-block;*/
+    width:1em;
+    background:#FFC;
+    border-bottom:#554865 1px dotted;
 }
 /* ------------------------------------------------------------------------
    = Page blocks styling

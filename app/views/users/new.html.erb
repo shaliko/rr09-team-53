@@ -6,7 +6,7 @@
   <%- if @user.openid_identifier.blank? -%>
     <%= render :partial => "form", :locals => { :f => f } -%>
     <div class="buttonrow">
-      <%= f.submit "Submit" %> <%= link_to 'cancel', :back, :class => 'negative' -%>
+      <%= f.submit "Submit" %> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
     </div>
 
     <fieldset>
@@ -17,7 +17,7 @@
       </div>
     </fieldset>
     <div class="buttonrow">
-      <%= f.submit "Submit" -%> <%= link_to 'cancel', :back, :class => 'negative' -%>
+      <%= f.submit "Submit" -%> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
     </div>
   <% end %>
 <% end %>

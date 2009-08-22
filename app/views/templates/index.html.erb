@@ -1,26 +1,46 @@
-<%- title "#{gravatar_tag(current_user)} #{current_user.username} > Templates" -%>
+<%- title "#{gravatar_link_to(@user)} #{@user.username} > Templates" -%>
 
-<div>
+<%- if is_owner?(@user) -%>
+  <%- content_for :toolbox do -%>
+  <ul>
+    <li><%= link_to 'Add new template', new_user_template_path(current_user), :class => 'icon add' -%></li>
+  </ul>
+  <%- end -%>
+<%- end -%>
 
-</div>
 
 <%- unless @templates.blank? -%>
-<table width="100%" cellpadding="0" cellspacing="0">
-  <tr>
-    <th width="70%">Title</th>
-    <th width="20%">&nbsp;</th>
-  </tr>
-  <%- for template in @templates -%>
-    <tr>
-      <td><%= link_to h(template.title), user_template_path(@user, template) -%></td>
-      <td align="right">
-        <%= link_to '&nbsp;', edit_user_template_path(@user, template), { :class => 'icon edit', :title => 'Edit' } -%>
-        <%= link_to '&nbsp;', user_template_path(@user, template), { :method => :delete, :confirm => 'Do you realy want to delete this template?', :class => 'icon delete', :title => 'Delete' } -%>
-      </td>
-    </tr>
-  <%- end -%>
-</table>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th width="75%" align="left">Title</th>
+        <th width="5%"></th>
+        <th width="10%">Updated</th>
+        <th width="10%">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%- for template in @templates -%>
+        <tr>
+          <td><%= link_to h(template.title), user_template_path(@user, template) -%></td>
+          <td align="center"><%= template.private ? image_tag('icons/lock.png', :size => '16x16', :alt => 'Private') : '&nbsp;' -%></td>
+          <td align="center"><%= template.updated_at.strftime('%m/%d/%Y') -%></td>
+          <td align="right">
+          <%- if is_owner?(@user) -%>
+            <%= link_to '&nbsp;', edit_user_template_path(@user, template), { :class => 'icon edit', :title => 'Edit' } -%>
+            <%= link_to '&nbsp;', user_template_path(@user, template), { :method => :delete, :confirm => "Do you realy want to delete #{html_escape(template.title)}?", :class => 'icon delete', :title => 'Delete' } -%>
+          <%- end -%>
+          </td>
+        </tr>
+      <%- end -%>
+    </tbody>
+  </table>
 <%= will_paginate @templates %>
 <%- else -%>
-<p>List is empty.</p>
+  <p class="text-center">
+    Oh! It's so sad but <%= is_owner?(@user) ? 'you' : @user.username -%> don't have any template yet.
+  </p>
+  <%- if is_owner?(@user) -%>
+  <p class="text-center">Just <%= link_to 'add new one', new_user_template_path(current_user), :class => 'icon add' -%>. It's easy and cool :)</p>
+  <%- end -%>
 <%- end -%>

@@ -1,12 +1,12 @@
 <%- title 'New template' -%>
 
 <div class="container-form">
-  <%- form_for [@user, @template] do |f| -%>
+  <%- form_for [@user, @_template] do |f| -%>
     <%= f.error_messages -%>
 
     <%= render :partial => "form", :locals => {:f => f} -%>
     <div class="buttonrow">
-      <%= submit_tag 'Create' -%> <%= link_to 'Cancel', :back, :class => 'negative' -%>
+      <%= submit_tag 'Create' -%> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
     </div>
   <%- end -%>
 </div>

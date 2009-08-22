@@ -7,9 +7,13 @@ class ApplicationController < ActionController::Base
 
   filter_parameter_logging :password
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :is_owner?
 
   private
+
+  def is_owner?(user)
+    return (logged_in? and current_user == user) ? true : false
+  end
 
   def logged_in?
     return (current_user) ? true : false
@@ -28,8 +32,8 @@ class ApplicationController < ActionController::Base
   def require_user
     unless current_user
       store_location
-      flash[:notice] = I18n.t("must_be_logged")
-      redirect_to new_user_session_url
+      flash[:notice] = 'You must be logged in'
+      redirect_to login_url
       return false
     end
   end
@@ -37,7 +41,7 @@ class ApplicationController < ActionController::Base
   def require_no_user
     if current_user
       store_location
-      flash[:notice] = I18n.t("must_be_logged_out")
+      flash[:notice] = 'You must be logged out'
       redirect_to account_url
       return false
     end

@@ -1,0 +1,31 @@
+.body_html {}
+.body_html h1 {
+  font:normal normal bold 3em Arial, Helvetica, sans-serif;
+  color:#000;
+  padding-bottom:.2em;
+  margin-bottom:.2em;
+  line-height:auto;
+  letter-spacing:auto;
+  text-shadow: 0 1px 1px #fff;
+  border:none;
+  }
+.body_html h2 {
+  font:normal normal bold 2em Arial, Helvetica, sans-serif;
+  color:#000;
+  padding-bottom:.2em;
+  margin-bottom:.5em;
+  text-shadow: 0 1px 1px #fff;
+  }
+.body_html h3 {
+  font:normal normal normal 1.6em Arial, Helvetica, sans-serif;
+  color:#000;
+  line-height:1;
+  margin-bottom:.5em;
+  text-shadow: 0 1px 1px #fff;
+  }
+.body_html h4 {
+  font:normal normal bold 1.4em Arial, Helvetica, sans-serif;
+  color:#888;
+  padding-bottom:.3em;
+  line-height:1em;
+  }

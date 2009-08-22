@@ -1,6 +1,7 @@
     <div id="page-body" class="">
       <div class="main-container">
         <div class="page">
+          <div class="toolbox text-right"><%= yield :toolbox -%></div>
           <h1><%= yield :title -%></h1>
           <%= yield -%>
         </div>

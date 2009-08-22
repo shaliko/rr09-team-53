@@ -145,7 +145,7 @@
     text-align:center;
     text-shadow: 0 1px 1px #fff;
     text-decoration:none;
-    color:#777;
+    color:#444;
     outline-color:-moz-use-text-color;
     outline-style:none;
     outline-width:medium;
@@ -160,13 +160,13 @@
   .buttonrow input:hover,
   .buttonrow a.button:hover {
     background-position:left -48px;
-    color:#666666;
+    color:#555;
     }
   .button:active,
   .buttonrow input:active,
   .buttonrow a.button:active {
     background-position:left -38px;
-    color:#666666;
+    color:#555;
     }
   a.button,
   .buttonrow a.button {
