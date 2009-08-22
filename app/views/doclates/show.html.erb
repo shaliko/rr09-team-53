@@ -7,6 +7,11 @@
     <li><%= link_to 'Edit', edit_user_doclate_path(@user, @doclate), :class => 'icon edit' -%></li>
     <li><%= link_to 'Delete', user_doclate_path(@user, @doclate), { :method => :delete, :confirm => "Do you realy want to delete #{html_escape(@doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
   <%- end -%>
+    <li>
+      <!-- AddThis Button BEGIN -->
+      <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=dochub"><img src="http://s7.addthis.com/static/btn/sm-share-en.gif" width="83" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=dochub"></script>
+      <!-- AddThis Button END -->
+    </li>
   </ul>
 <%- end -%>
 
