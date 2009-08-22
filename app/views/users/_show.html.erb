@@ -1,7 +1,9 @@
   <%- title "#{gravatar_tag(user)} #{user.username}" -%>
 
   <% if current_user != user %>
-    <span id="friendship_button"><%= link_to_remote 'follow', :url => friendships_path(:friend_id => user), :method => :post,  :html => {:class => 'button'} -%></span>
+    <span id="friendship_button_<%= user.id -%>">
+      <%= relation_button(current_user, user) %>
+    </span>
   <% end  %>
   <div class="common-container">
     <div class="container-left-half-column">
@@ -32,7 +34,19 @@
     <div class="container-left-half-column">
       <h4>Following</h4>
       <ul>
-        <li>...</li>
+        <% for friendship in user.friendships %>
+          <li>
+            <%= link_to(gravatar_tag(friendship.friend), user_path(friendship.friend)) %>
+          </li>
+        <% end %>
+      </ul>
+      <h4>Followers</h4>
+      <ul>
+        <% for friendship in user.inverse_friendships %>
+          <li>
+            <%= link_to(gravatar_tag(friendship.friend), user_path(friendship.friend)) %>
+          </li>
+        <% end %>
       </ul>
       <h4>News feed</h4>
       <p>List of activities of followed users.</p>

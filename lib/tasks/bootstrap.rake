@@ -12,9 +12,20 @@
       end
     end
 
+    desc "Bootstrap friends"
+    task :friends => :environment do
+      Friendship.delete_all
+      User.all.each do |user|
+        friends = User.all(:conditions => ["id !=?", user.id], :limit => rand(User.count))
+        friends.each do |friend|
+          user.friendships.create(:friend_id => friend.id)
+        end
+      end
+    end
+
     desc "Call all the bootstrap tasks"
     task :all do
-      tasks = %w[users]
+      tasks = %w[users friends]
       tasks.each do |task|
         Rake::Task["bootstrap:#{task}"].invoke
       end
