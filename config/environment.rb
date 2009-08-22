@@ -26,6 +26,7 @@ Rails::Initializer.run do |config|
   config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem 'maruku'
   config.gem "htmldoc", :lib => "htmldoc"
+  config.gem 'ambethia-smtp-tls', :lib => 'smtp-tls', :sourse => 'http://gems.github.com'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
