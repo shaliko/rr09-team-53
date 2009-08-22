@@ -1,0 +1,19 @@
+#Eclipse/Aptana settings
+.project
+#NetBeans settings
+[Nn]bproject
+#autotest file
+.autotest
+#ignore thumbnails created by windows
+[Tt]humbs.db
+#ignore database local settings
+[Cc]onfig/database.yml
+[Cc]onfig/settings.yml
+#ignore log and temp files
+[Ll]og/*.log
+*.pid
+[Tt]mp
+*.tmp_*
+#ignore database shema file
+[Dd]b/schema.rb
+[Dd]b/*.sqlite3
