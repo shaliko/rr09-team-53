@@ -19,7 +19,7 @@
   </div>
   <br class="clearboth" />
 <%- else -%>
-  <%- title "#{gravatar_tag(current_user)} #{current_user.username} > Templates" -%>
+  <%- title "#{gravatar_tag(current_user)} #{current_user.username}" -%>
 
   <div class="common-container">
     <div class="container-left-half-column">
@@ -32,7 +32,7 @@
         </dd>
       </dl>
       <p>
-        <%= link_to 'Add new', new_user_template_path(current_user), :class => 'button' -%> or <%= link_to 'View all templates', user_templates_path(current_user) -%>
+        <%= link_to 'Add new', new_user_template_path(current_user), :class => 'button' -%> or <%= link_to "View all templates (#{current_user.templates_count})", user_templates_path(current_user) -%>
       </p>
 
       <dl>
@@ -44,7 +44,7 @@
         </dd>
       </dl>
       <p>
-        <%= link_to 'View all templates', user_templates_path(current_user) -%>
+        <%= link_to "View all documents", user_templates_path(current_user) -%>
       </p>
     </div>
     <div class="container-left-half-column">

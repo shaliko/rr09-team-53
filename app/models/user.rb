@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :templates, :dependent => :destroy
+  
   is_gravtastic :email,
     :rating   => 'G',
     :default  => 'identicon',
