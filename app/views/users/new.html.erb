@@ -1,4 +1,17 @@
 <%# title "New User" %>
+<h1>Register</h1>
 
-<%= render :partial => 'form' %>
+<% form_for @user do |f| %>
+  <%= f.error_messages %>
+  <% if @user.openid_identifier.blank? %>
+    <%= render :partial => "form", :locals => { :f => f } %>
+    <p><%= f.submit "Submit" %> <%= link_to 'cancel', :back, :class => 'negative' -%></p>
 
+    <h2>Or use OpenID</h2>
+      <p>
+      <%= f.label :openid_identifier, "OpenID URL" %><br />
+      <%= f.text_field :openid_identifier %>
+    </p>
+    <p><%= f.submit "Submit" %> <%= link_to 'cancel', :back, :class => 'negative' -%></p>
+  <% end %>
+<% end %>
