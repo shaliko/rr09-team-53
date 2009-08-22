@@ -44,7 +44,7 @@
       <ul>
         <% for friendship in user.inverse_friendships %>
           <li>
-            <%= link_to(gravatar_tag(friendship.friend), user_path(friendship.friend)) %>
+            <%= link_to(gravatar_tag(friendship.user), user_path(friendship.user)) %>
           </li>
         <% end %>
       </ul>
