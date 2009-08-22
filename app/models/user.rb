@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   is_gravtastic :email,
-    :rating => 'G',
-    :default => 'identicon'
+    :rating   => 'G',
+    :default  => 'identicon',
+    :size     => 40
 
   acts_as_authentic do |c|
     c.login_field            = :email

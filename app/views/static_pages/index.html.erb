@@ -19,8 +19,7 @@
   </div>
   <br class="clearboth" />
 <%- else -%>
-  <%- title current_user.email -%>
-  <%= image_tag @user.gravatar_url %>
+  <%- title "#{gravatar_tag(current_user)} #{current_user.username} > Templates" -%>
 
   <div class="common-container">
     <div class="container-left-half-column">
