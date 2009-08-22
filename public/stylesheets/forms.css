@@ -3,9 +3,9 @@
    ------------------------------------------------------------------------- */
   .container-form { }
     .container-form .errorExplanation {
-      padding:5px;
+      padding:1em;
       margin-bottom:1em;
-      font-size:.9em;
+      font-size:.6em;
       background-color:#FFC;
       -moz-border-radius:5px;
       -webkit-border-radius:5px;
@@ -24,15 +24,16 @@
         -webkit-border-radius:5px;
         }
     .container-form fieldset {
-      padding:.5em 0;
+      padding:1em 0;
+      margin-bottom:1em;
       }
     .container-form legend {
       display:block;
       width:100%;
-      border-top:#CCC 1px dotted;
+      border-bottom:#CCC 1px dotted;
       padding:5px 0;
       margin:0;
-      font-size:1.4em;
+      font-size:1.2em;
       /*text-align:center;*/
       }
     .container-form fieldset div {
@@ -97,8 +98,9 @@
     .container-form .buttonrow {
       border-top:#FC6 2px solid;
       padding:7px 10px;
+      margin-bottom:1em;
       background:#FFC;
-      text-align:right;
+      /*text-align:right;*/
       }
       .buttonrow a {
         font-weight:bold;

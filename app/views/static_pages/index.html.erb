@@ -1,19 +1,34 @@
-<%- title 'Welcome to document repository' -%>
-        <div class="container-left-half-column">
-          <dl>
-            <dt><span>Recently updated</span></dt>
-            <dd>
-              <ul>
-                <li><a href=""">User 1</a> / <a href=""">Document 1</a></li>
-                <li><a href=""">User 2</a> / <a href=""">Document 2</a></li>
-              </ul>
-            </dd>
-          </dl>
-        </div>
-        <div class="container-right-half-column">
-          <p>With this service you can create documents using handy autofill function.</p>
+<%- unless logged_in? -%>
+  <%- title 'Welcome to document repository' -%>
+  <div class="container-left-half-column">
+    <dl>
+      <dt><span>Recently updated</span></dt>
+      <dd>
+        <ul>
+          <li><a href=""">User 1</a> / <a href=""">Document 1</a></li>
+          <li><a href=""">User 2</a> / <a href=""">Document 2</a></li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+  <div class="container-right-half-column">
+    <p>With this service you can create documents using handy autofill function.</p>
 
-          <p>Any registered user can create doc-template with "magic gaps", and then fill these gaps with wizard. <em>Anytime.</em></p>
-          <p>Or any user can find doc-template in public repository, fork them and use later.</p>
-        </div>
-        <br class="clearboth" />
+    <p>Any registered user can create doc-template with "magic gaps", and then fill these gaps with wizard. <em>Anytime.</em></p>
+    <p>Or any user can find doc-template in public repository, fork them and use later.</p>
+  </div>
+  <br class="clearboth" />
+<%- else -%>
+<%- title current_user.email -%>
+  <dl>
+    <dt>Last updated templates</dt>
+    <dd>
+      <ul>
+        <li>...</li>
+      </ul>
+    </dd>
+  </dl>
+  <p>
+    <%= link_to 'Add new', user_templates_path(@user), :class => 'button' -%> or <%= link_to 'View all templates', user_templates_path(@user) -%>
+  </p>
+<%- end -%>

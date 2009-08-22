@@ -1,22 +1,32 @@
-<%# title "Login" %>
-<h1>Login</h1>
+<%- title 'Login' %>
 
+<div class="container-form">
 <% form_for @user_session do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit "Submit" %> <%= link_to 'cancel', :back, :class => 'negative' -%></p>
+  <fieldset>
+    <legend></legend>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+  </fieldset>
+  <div class="buttonrow">
+    <%= f.submit "Submit" %> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
+  </div>
 
-  <h2>Or use OpenID</h2>
-  <p>
-    <%= f.label :openid_identifier, "OpenID URL" %><br />
-    <%= f.text_field :openid_identifier %>
-  </p>
-  <p><%= f.submit "Submit" %> <%= link_to 'cancel', :back, :class => 'negative' -%></p>
+  <fieldset>
+    <legend>Or use OpenID</legend>
+    <div>
+      <%= f.label :openid_identifier, "OpenID URL" %>
+      <%= f.text_field :openid_identifier %>
+    </div>
+  </fieldset>
+  <div class="buttonrow">
+    <%= f.submit "Submit" %> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
+  </div>
 <% end %>
+</div>

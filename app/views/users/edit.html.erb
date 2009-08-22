@@ -1,9 +1,12 @@
-<%# title "Edit User" %>
-<h1>Edit My Account</h1>
+<%- title "Edit your account" -%>
 
+<div class="container-form">
 <% form_for @user do |f| %>
   <%= f.error_messages %>
   <%= render :partial => 'form', :locals => { :f => f } %>
-  <p><%= f.submit "Submit" %> <%= link_to 'cancel', :back, :class => 'negative' -%></p>
+  <div class="buttonrow">
+    <%= f.submit "Submit" %> <%= link_to 'cancel', :back, :class => 'negative' -%>
+  </div>
 <% end %>
+</div>
 

@@ -1,0 +1,39 @@
+.icon {
+	padding:1px 0 1px 20px;
+	background-position: 2px 3px;
+	background-repeat: no-repeat;
+	}
+li.icon {
+	padding-bottom: 5px;
+	background-position: 0 2px;
+	}
+.icon a {
+	}
+a.icon {
+        display:inline-block;
+	text-decoration: none;
+	background-position: 0 0px;
+	}
+input.icon {
+	text-decoration: none;
+	background-position: 2px 4px;
+	}
+
+.add {
+	background-image: url(/images/icons/add.png);
+	}
+.edit {
+	background-image: url(/images/icons/pencil.png);
+	}
+.delete {
+	background-image: url(/images/icons/delete.png);
+	}
+.back {
+	background-image: url(/images/icons/arrow_left.png);
+	}
+.accept {
+	background-image: url(/images/icons/accept.png);
+	}
+.info {
+	background-image: url(/images/icons/information.png);
+	}
