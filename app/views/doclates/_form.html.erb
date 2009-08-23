@@ -12,7 +12,7 @@
       <%= link_to 'Options', "#", :class => 'button', :onclick => "Modalbox.show($('div_input_button_select'), {title: 'Options field', width: 400, slideDownDuration:.15});" %>
     </div>
     <%= f.text_area :body_markdown, :size => '70x20', :class => 'fullwidth' -%>
-    <p class="comment">None: you can use Markdown for text formating.</p>
+    <p class="comment">None: you can use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> for text formating.</p>
   </div>
   <div class="controlset">
     <%= f.check_box :private -%>

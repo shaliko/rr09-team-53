@@ -28,11 +28,9 @@
   <%= will_paginate @doclates %>
 <%- else -%>
   <%- unless @query.blank? -%>
-  <div class="message">
-    <div class="body">
+  <div class="message"><div class="body">
       &laquo;<%= h(@query) -%>&raquo; not found in DocHub repository.<br />
       Please, try again.
-    </div>
-  </div>
+  </div></div>
   <%- end -%>
 <%- end -%>

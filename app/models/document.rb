@@ -12,7 +12,7 @@ class Document < ActiveRecord::Base
   named_scope :last_updated, :order => "updated_at DESC", :limit => 5
 
   def self.per_page
-    3
+    20
   end
 
   def self.replace_fields(fields, text)
