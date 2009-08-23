@@ -10,6 +10,10 @@ class DocumentsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html # index.html
+      format.pdf { send_data(render_to_pdf({ :action => 'show.rpdf'}), :filename => "#{@document.id}_#{@document.title.parameterize}.pdf", :disposition => "inline", :type => "application/pdf") }
+    end
   end
 
   def new
@@ -80,6 +84,5 @@ class DocumentsController < ApplicationController
       redirect_to root_path
     end
   end
-
 
 end
