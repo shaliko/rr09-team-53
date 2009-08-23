@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
   end
   
   def create
-    if params[:user_session] && params[:user_session][:openid_identifier]
+    if params[:user_session] && !params[:user_session][:openid_identifier].blank?
       @user_session = UserSession.new({ :openid_identifier => params[:user_session][:openid_identifier]})
     else
       @user_session = UserSession.new(params[:user_session])
