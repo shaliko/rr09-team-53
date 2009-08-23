@@ -3,7 +3,6 @@
 <div class="container-form">
 <%- form_for @user do |f| -%>
   <%= f.error_messages -%>
-  <%- if @user.openid_identifier.blank? -%>
   <div class="common-container">
     <div class="container-left-column">
       <%= render :partial => "form", :locals => { :f => f } -%>
@@ -12,7 +11,6 @@
       </div>
     </div>
     <div class="container-right-column">
-
     <fieldset style="height:220px;">
       <legend>Or use OpenID</legend>
       <div>
@@ -26,6 +24,5 @@
     </div>
     <br class="clearboth" />
   </div>
-  <% end %>
 <% end %>
 </div>

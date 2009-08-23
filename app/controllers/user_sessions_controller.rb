@@ -7,7 +7,12 @@ class UserSessionsController < ApplicationController
   end
   
   def create
-    @user_session = UserSession.new(params[:user_session])
+    if params[:user_session] && params[:user_session][:openid_identifier]
+      @user_session = UserSession.new({ :openid_identifier => params[:user_session][:openid_identifier]})
+    else
+      @user_session = UserSession.new(params[:user_session])
+    end
+
     @user_session.save do |result|
       if result
         flash[:notice] = "Successfully logged in"
