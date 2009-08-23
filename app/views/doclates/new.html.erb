@@ -1,7 +1,7 @@
 <%- title 'New doclate' -%>
 
 <div class="container-form">
-  <%- form_for [@user, @doclate] do |f| -%>
+  <%- form_for @doclate, :url => user_doclates_path(@user, :parent_id => @parent) do |f| -%>
     <%= f.error_messages -%>
 
     <%= render :partial => "form", :locals => {:f => f} -%>

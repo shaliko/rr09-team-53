@@ -46,7 +46,7 @@
         <p><%= link_to "View all documents (#{user.documents_count})", user_documents_path(user) -%></p>
         <%- else -%>
         <p>Looks like you don't have any document yet.</p>
-        <p>But it's not problem ;) <%= link_to 'Open', user_doclates_path(user) -%> or <%= link_to 'create one', new_user_doclate_path(user) -%> of your and click "Create document". It's fun!</p>
+        <p>But it's not a problem ;) <%= link_to 'Open', user_doclates_path(user) -%> or <%= link_to 'create one', new_user_doclate_path(user) -%> of your and click "Create document". It's fun!</p>
         <%- end -%>
       <%- end -%>
     </div>

@@ -6,6 +6,11 @@
     <li><%= link_to 'Edit doclate', edit_user_doclate_path(@user, @doclate), :class => 'icon edit' -%></li>
   </ul>
 <%- end -%>
+
+<div class="copyblock">
+  Based on &laquo;<%= link_to @doclate.title, [@doclate.user, @doclate] -%>&raquo; by <%= link_to @doclate.user.username, @doclate.user -%>
+</div>
+
 <div class="common-container">
   <div class="container-left-column container-form">
     <%- form_for @document, :url => user_documents_path(@user, :doclate_id => @doclate) do |f| -%>

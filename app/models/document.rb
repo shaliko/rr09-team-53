@@ -31,15 +31,4 @@ class Document < ActiveRecord::Base
     self.body_html = Maruku.new(self.body_markdown).to_html
   end
 
-  def self.doclate_field_to_value(id, str)
-#    params = str.split('|').collect(&:strip)
-#
-#    field_id      = id
-#    field_type    = params.pop
-#    field_title   = params[0][/\A(&#8216;|&#8217;){1}(.+)(&#8216;|&#8217;){1}\z/, 2]
-#    field_options = (params[1].blank?) ? '...' : params[1][/\A(&#8216;|&#8217;){1}(.+)(&#8216;|&#8217;){1}\z/, 2]
-#
-#    "<span id=\"dochub-textfield-#{field_id}\" class=\"dochub-placeholder #{field_type}\" title=\"#{field_title}\">#{field_options}</span>"
-  end
-
 end

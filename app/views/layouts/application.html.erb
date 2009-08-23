@@ -24,9 +24,11 @@
       <div class="container-right-column text-right">
         <ul id="menu-lev1">
           <% if logged_in? %>
-            <li><%= link_to 'Dashboard', root_path %></li>
-            <li><%= link_to 'Edit Profile', edit_user_path(:current) %></li>
-            <li><%= link_to 'Logout', logout_path %></li>
+            <li><%= "#{gravatar_tag(current_user, :size => 24)} #{current_user.username}" -%></li>
+            <li><%= link_to 'Dashboard', root_path -%></li>
+            <li><%= link_to 'Search', search_path -%></li>
+            <li><%= link_to 'Edit Profile', edit_user_path(:current) -%></li>
+            <li><%= link_to 'Logout', logout_path -%></li>
           <% else %>
             <li><%= link_to 'Sign up', new_user_path -%></li>
             <li><%= link_to 'Login', login_path -%></li>

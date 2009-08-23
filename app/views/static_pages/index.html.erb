@@ -1,6 +1,11 @@
 <%- unless logged_in? -%>
   <%- title 'Welcome to document templates repository' -%>
   <div class="container-left-half-column">
+    <div class="container-form">
+    <%- form_tag(search_path, :method => :get) do -%>
+      <%= text_field_tag :q, @query -%> <%= submit_tag 'Find', :class => 'button' -%>
+    <%- end -%>
+    </div>
     <dl>
       <dt><span>Recently updated</span></dt>
       <dd>

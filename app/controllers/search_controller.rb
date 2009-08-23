@@ -1,7 +1,8 @@
 class SearchController < ApplicationController
 
   def index
-    @templates = Template.search(params[:q]).paginate :page => params[:page]
+    @query = params[:q]
+    @doclates = Doclate.search(@query).paginate :page => params[:page]
   end
 
 end

@@ -1,12 +1,14 @@
-<%- title "#{h(@doclate.title)}" -%>
+<%- title "#{gravatar_link_to(@user)} #{@user.username} > Doclates" -%>
 
 <%- content_for :toolbox do -%>
   <ul>
-    <li><%= link_to 'Back to list', user_doclates_path(@user), :class => 'icon back' -%></li>
+    <li><%= link_to 'List doclates', user_doclates_path(@user), :class => 'icon back' -%></li>
   <%- if is_owner?(@user) -%>
     <li><%= link_to 'Create document', new_user_document_path(@user, :doclate_id => @doclate), { :class => 'icon new-document', :title => 'Create document' } -%></li>
     <li><%= link_to 'Edit', edit_user_doclate_path(@user, @doclate), :class => 'icon edit' -%></li>
     <li><%= link_to 'Delete', user_doclate_path(@user, @doclate), { :method => :delete, :confirm => "Do you realy want to delete #{h(@doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
+  <%- elsif logged_in? -%>
+    <li><%= link_to 'Copy', new_user_doclate_path(current_user, :parent_id => @doclate), :class => 'icon copy', :title => 'Create new doclate based on this one' -%></li>
   <%- end -%>
     <li>
       <!-- AddThis Button BEGIN -->
@@ -18,8 +20,12 @@
 
 <div class="copyblock">
   <%= is_owner?(@user) ? 'You' : "#{gravatar_link_to(@doclate.user, {:size => 24})} #{link_to @doclate.user.username, user_path(@doclate.user)}" -%> has updated this doclate at <%= @doclate.updated_at.to_s(:long) -%>
+  <%- unless @doclate.parent.blank? -%>
+  , based on &laquo;<%= link_to @doclate.parent.title, [@doclate.parent.user, @doclate.parent] -%>&raquo; by <%= link_to @doclate.parent.user.username, @doclate.parent.user -%>
+  <%- end -%>
 </div>
 
+<h2><%= h(@doclate.title) -%></h2>
 <div class="body_html">
   <%= @doclate.body_html -%>
 </div>

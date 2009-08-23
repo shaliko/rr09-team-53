@@ -1,7 +1,9 @@
 class Doclate < ActiveRecord::Base
   belongs_to  :user, :counter_cache => true
-  belongs_to  :parent, :class_name => 'Template', :foreign_key => 'id'
-  has_many    :documents, :dependent => :destroy
+  has_many    :copies, :dependent => :destroy
+  has_one     :parental_link, :class_name => 'Copy', :foreign_key => 'copy_id'
+  has_one     :parent, :through => :parental_link, :source => :doclate
+  has_many    :documents
 
   attr_accessible :title, :body_markdown, :private
 
@@ -12,6 +14,13 @@ class Doclate < ActiveRecord::Base
 
   named_scope :public, :conditions => {:private => false}
   named_scope :last_updated, :order => "updated_at DESC", :limit => 5
+  named_scope :search, lambda { |query_string|
+    if query_string.blank?
+      {:conditions => ["1 != 1"]}
+    else
+      { :conditions => ["(title LIKE ? OR body_html LIKE ?) AND private = ?", "%#{query_string}%", "%#{query_string}%", false]}
+    end
+  }
 
   def self.per_page
     3
@@ -37,13 +46,5 @@ class Doclate < ActiveRecord::Base
 
     "<span id=\"dochub-textfield-#{field_id}\" class=\"dochub-placeholder #{field_type}\" title=\"#{field_title}\">#{field_options}</span>"
   end
-
-  named_scope :search, lambda { |query_string|
-    if query_string.blank?
-      {:conditions => ["1 != 1"]}
-    else
-      { :conditions => ["(title LIKE ? OR body_html LIKE ?) AND private = ?", "%#{query_string}%", "%#{query_string}%", false]}
-    end
-  }
 
 end

@@ -1,8 +1,9 @@
 class DoclatesController < ApplicationController
-  before_filter :require_user,      :except => [:index, :show]
+  before_filter :require_user,        :except => [:index, :show]
   before_filter :find_user
-  before_filter :check_permissions, :except => [:index, :show]
-  before_filter :find_doclate,      :except => [:index, :new, :create]
+  before_filter :check_permissions,   :except => [:index, :show]
+  before_filter :find_doclate,        :except => [:index, :new, :create]
+  before_filter :find_parent_doclate, :only   => [:new, :create]
 
   def index
     @doclates = (is_owner?(@user) ? @user.doclates.all : @user.doclates.public).paginate :page => params[:page]
@@ -19,6 +20,7 @@ class DoclatesController < ApplicationController
   def create
     @doclate = @user.doclates.new(params[:doclate])
     if @doclate.save
+      @parent.copies.build(:copy_id => @doclate.id).save unless @parent.blank?
       flash[:notice] = 'New doclate created successfully'
       redirect_to user_doclate_path(@user, @doclate)
     else
@@ -58,6 +60,16 @@ class DoclatesController < ApplicationController
     if @doclate.blank?
       flash[:error] = 'Doclate not found'
       redirect_to user_doclates_path(@user)
+    end
+  end
+
+  def find_parent_doclate
+    unless params[:parent_id].blank?
+      @parent = Doclate.public.find_by_id(params[:parent_id])
+      if @parent.blank?
+        flash[:error] = 'Source doclate not found. Can\'t copy'
+        redirect_to user_doclates_path(@user)
+      end
     end
   end
 

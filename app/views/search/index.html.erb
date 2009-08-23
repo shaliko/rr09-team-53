@@ -1,17 +1,37 @@
-<%- title "Search" -%>
+<%- title "Search results" -%>
 
-<%- unless @templates.blank? -%>
+<div class="copyblock container-form text-right">
+  <%- form_tag(search_path, :method => :get) do -%>
+    <%= text_field_tag :q, @query -%> <%= submit_tag 'Find', :class => 'button' -%>
+  <%- end -%>
+</div>
+
+<%- unless @doclates.blank? -%>
   <table width="100%" cellpadding="0" cellspacing="0">
+    <thead>
     <tr>
-      <th width="70%">Title</th>
+      <th width="50%" align="left">Doclate</th>
+      <th width="20%">Updated</th>
+      <th width="30%" align="left">Author</th>
     </tr>
-    <%- for template in @templates -%>
+    </thead>
+    <tbody>
+    <%- for doclate in @doclates -%>
       <tr>
-        <td><%= link_to h(template.title), user_template_path(template.user, template) -%></td>
+        <td><%= link_to h(doclate.title), user_doclate_path(doclate.user, doclate) -%></td>
+        <td align="center"><%= doclate.updated_at.strftime('%m/%d/%Y') -%></td>
+        <td><%= gravatar_link_to(doclate.user, :size => 24) -%> <%= link_to h(doclate.user.username), user_path(doclate.user) -%></td>
       </tr>
     <%- end -%>
+    </tbody>
   </table>
-  <%= will_paginate @templates %>
-<%- else -%>
-  <p>List is empty.</p>
+  <%= will_paginate @doclates %>
+<%- end -%>
+<%- if not @query.blank? -%>
+<div class="message">
+  <div class="body">
+    &laquo;<%= h(@query) -%>&raquo; not found in DocHub repository.<br />
+    Please, try again.
+  </div>
+</div>
 <%- end -%>
