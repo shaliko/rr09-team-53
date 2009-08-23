@@ -12,7 +12,8 @@ set :deploy_to, "/home/rails_app/#{application}"
 # your SCM below:
 set :scm, :git
 set :user, "rails_app"
-set :branch, "master"
+#set :branch, "master"
+set :branch, "railsrumble09"
 
 set :use_sudo, false
 
