@@ -15,6 +15,10 @@ class DoclatesController < ApplicationController
 
   def new
     @doclate = @user.doclates.build
+    unless @parent.blank?
+      @doclate.title = @parent.title
+      @doclate.body_markdown = @parent.body_markdown
+    end
   end
 
   def create

@@ -26,12 +26,13 @@
     </tbody>
   </table>
   <%= will_paginate @doclates %>
-<%- end -%>
-<%- if not @query.blank? -%>
-<div class="message">
-  <div class="body">
-    &laquo;<%= h(@query) -%>&raquo; not found in DocHub repository.<br />
-    Please, try again.
+<%- else -%>
+  <%- unless @query.blank? -%>
+  <div class="message">
+    <div class="body">
+      &laquo;<%= h(@query) -%>&raquo; not found in DocHub repository.<br />
+      Please, try again.
+    </div>
   </div>
-</div>
+  <%- end -%>
 <%- end -%>

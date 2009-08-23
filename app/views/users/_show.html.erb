@@ -73,7 +73,7 @@
       <%- end -%>
       <h4>News feed</h4>
       <p>List of activities of followed users.</p>
-      <ul>
+      <ul class="without-markers">
         <% for feed in user.feeds %>
           <li><%= feed_item(feed) %></li>
         <% end  %>

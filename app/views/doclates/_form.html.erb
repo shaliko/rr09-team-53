@@ -5,14 +5,18 @@
   </div>
   <div>
     <%= f.label :body_markdown %>
-    <%= link_to 'text', "#", :class => 'button', :onclick => "Modalbox.show($('div_input_button_text'), {title: 'New text field', width: 400});" %>
-    <%= link_to 'textarea', "#", :class => 'button', :onclick => "Modalbox.show($('div_input_button_textarea'), {title: 'New textarea field', width: 400});" %>
-    <%= link_to 'select', "#", :class => 'button', :onclick => "Modalbox.show($('div_input_button_select'), {title: 'New select field', width: 400});" %>
+    <div>
+      Insert field:
+      <%= link_to 'Single line text', "#", :class => 'button', :onclick => "Modalbox.show($('div_input_button_text'), {title: 'Single line text field', width: 400, slideDownDuration:.15});" %>
+      <%= link_to 'Multiline text', "#", :class => 'button', :onclick => "Modalbox.show($('div_input_button_textarea'), {title: 'Multiline text field', width: 400, slideDownDuration:.15});" %>
+      <%= link_to 'Options', "#", :class => 'button', :onclick => "Modalbox.show($('div_input_button_select'), {title: 'Options field', width: 400, slideDownDuration:.15});" %>
+    </div>
     <%= f.text_area :body_markdown, :size => '70x20', :class => 'fullwidth' -%>
+    <p class="comment">None: you can use Markdown for text formating.</p>
   </div>
   <div class="controlset">
-    <%= f.label :private, 'This is private template?' %>
     <%= f.check_box :private -%>
+    <%= f.label :private, 'This is private template?' %>
   </div>
 </fieldset>
 <%= javascript_include_tag 'texpand' -%>

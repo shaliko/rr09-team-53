@@ -63,16 +63,22 @@ span.label,
   }
 ul,
 ol {
-    list-style-position:inside;
-  }
-ul {
-  list-style-type:decimal;
-  }
-ul {
-  list-style-type:disc;
-  }
+    padding-left:1.5em;
+}
+ol li {
+    list-style:decimal outside;
+}
+ul li {
+    list-style:disc outside;
+}
 li {
     margin-bottom:.5em;
+}
+.without-markers {
+    padding:0;
+}
+.without-markers li {
+    list-style:none outside none;
 }
 ul li ol,
 ol li ul {

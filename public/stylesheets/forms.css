@@ -24,7 +24,7 @@
         -webkit-border-radius:5px;
         }
     .container-form fieldset {
-      padding:1em 0;
+      padding:0;
       margin-bottom:1em;
       }
     .container-form legend {

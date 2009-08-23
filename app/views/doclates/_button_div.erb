@@ -5,12 +5,12 @@
             <label id="label_text_title">Title</label>
             <input id="text_title" class="fullwidth" type="text" size="20" name=""/>
           </div>
+          <div class="text-right">
+            <%= button_to_function "Create", :class => "button details_button" do |page|
+                  page << "new FormInsertion('doclate_body_markdown', $F('text_title'), 'text');Modalbox.hide()"
+                end -%> or <%= link_to 'Cancel', '#', :onclick => "Modalbox.hide();", :class => 'negative' -%>
+          </div>
         </fieldset>
-        <div class="buttonrow">
-          <%= button_to_function "Create", :class => "details_button" do |page|
-                page << "new FormInsertion('doclate_body_markdown', $F('text_title'), 'text');Modalbox.hide()"
-              end -%> or <%= link_to 'Cancel', '#', :onclick => "Modalbox.hide();", :class => 'negative' -%>
-        </div>
       </div>
     </div>
     <div id="div_input_button_textarea" style="display:none;">
@@ -20,12 +20,12 @@
             <label id="label_textarea_title">Title</label>
             <input id="textarea_title" class="fullwidth" type="text" size="20" name=""/>
           </div>
+          <div class="text-right">
+            <%= button_to_function "Create", :class => "button details_button" do |page|
+                  page << "new FormInsertion('doclate_body_markdown', $F('textarea_title'), 'textarea');Modalbox.hide()"
+                end -%> or <%= link_to 'Cancel', '#', :onclick => "Modalbox.hide();", :class => 'negative' -%>
+          </div>
         </fieldset>
-        <div class="buttonrow">
-          <%= button_to_function "Create", :class => "details_button" do |page|
-                page << "new FormInsertion('doclate_body_markdown', $F('textarea_title'), 'textarea');Modalbox.hide()"
-              end -%> or <%= link_to 'Cancel', '#', :onclick => "Modalbox.hide();", :class => 'negative' -%>
-        </div>
       </div>
     </div>
     <div id="div_input_button_select" style="display:none;">
@@ -34,14 +34,17 @@
           <div>
             <label id="label_select_title">Title</label>
             <input id="select_title" class="fullwidth" type="text" size="20" name=""/>
+          </div>
+          <div>
             <label>Options</label>
-            <textarea class="fullwidth" cols="25" id="select_options" name="" rows="10"></textarea>
+            <textarea class="fullwidth" cols="25" rows="7" id="select_options" name=""></textarea>
+            <p class="comment">Note: write each option on new line</p>
+          </div>
+          <div class="text-right">
+            <%= button_to_function "Create", :class => "button details_button" do |page|
+                  page << "new FormInsertion('doclate_body_markdown', $F('select_title'), 'select', $F('select_options'));Modalbox.hide()"
+                end -%> or <%= link_to 'Cancel', '#', :onclick => "Modalbox.hide();", :class => 'negative' -%>
           </div>
         </fieldset>
-        <div class="buttonrow">
-          <%= button_to_function "Create", :class => "details_button" do |page|
-                page << "new FormInsertion('doclate_body_markdown', $F('select_title'), 'select', $F('select_options'));Modalbox.hide()"
-              end -%> or <%= link_to 'Cancel', '#', :onclick => "Modalbox.hide();", :class => 'negative' -%>
-        </div>
       </div>
     </div>
