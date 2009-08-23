@@ -3,6 +3,7 @@
 <%- content_for :toolbox do -%>
   <ul>
     <li><%= link_to 'List documents', user_documents_path(@user), :class => 'icon back' -%></li>
+    <li><%= link_to 'Download', user_document_path(@user, @document, :format => :pdf), :class => 'icon download' -%></li>
     <li><%= link_to 'Edit', edit_user_document_path(@user, @document), :class => 'icon edit' -%></li>
     <li><%= link_to 'Delete', user_document_path(@user, @document), { :method => :delete, :confirm => "Do you realy want to delete #{h(@document.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
   </ul>

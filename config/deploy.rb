@@ -24,6 +24,13 @@ role :db,  "74.207.244.192", :primary => true
 
 namespace :deploy do
 
+  desc "Shared files"
+  task :before_symlink, :roles => :app do
+    run "mkdir -p #{shared_path}/db"
+    run "rm -drf #{release_path}/db/production.sqlite3"
+    run "ln -s #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
+  end
+
   desc "Copy production configuration"
   task :after_symlink, :roles => [:app, :db, :web] do
     #copy config
