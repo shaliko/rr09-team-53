@@ -87,7 +87,7 @@ ol li ul {
   padding-left:1em;
   }
 ul.flat {
-
+    padding:0;
 }
 ul.flat li {
     display:inline-block;

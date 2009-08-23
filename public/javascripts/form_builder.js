@@ -34,29 +34,29 @@ var FormBuilder = Class.create({
     return html;
   },
   buildTextField: function (field, index) {
-    html = '<div><label for="field-'+index+'">#{title}</label>'.interpolate(field);
-    html += '<input type="text" id="field-'+index+'" name="fields[value]['+index+']" value="#{value}" class="fullwidth" />'.interpolate(field);
+    html = '<div><label for="form-'+field.id+'">#{title}</label>'.interpolate(field);
+    html += '<input type="text" id="form-'+field.id+'" name="fields[value]['+index+']" value="#{value}" class="dochub-field fullwidth" />'.interpolate(field);
     html += '<input type="hidden" id="hidden-field-'+index+'" name="fields[title]['+index+']" value="#{title}" />'.interpolate(field);
     html += '</div>';
 
     return html;
   },
   buildTextareaField: function (field, index) {
-    html = '<div><label for="field-'+index+'">#{title}</label>'.interpolate(field);
-    html += '<textarea id="field-'+index+'" name="fields[value]['+index+']" cols="10" rows="7" class="fullwidth">#{value}</textarea>'.interpolate(field);
+    html = '<div><label for="form-'+field.id+'">#{title}</label>'.interpolate(field);
+    html += '<textarea id="form-'+field.id+'" name="fields[value]['+index+']" cols="10" rows="7" class="dochub-field fullwidth">#{value}</textarea>'.interpolate(field);
     html += '<input type="hidden" id="hidden-field-'+index+'" name="fields[title]['+index+']" value="#{title}" />'.interpolate(field);
     html += '</div>';
 
     return html;
   },
   buildSelectField: function (field, index) {
-    html = '<div><label for="field-'+index+'">#{title}</label>'.interpolate(field);
+    html = '<div><label for="form-'+field.id+'">#{title}</label>'.interpolate(field);
     options = '';
     if (Object.isArray(field.value) && field.value.size() > 0)
-      field.value.each(function (value, index) {
+      field.value.each(function (value) {
         options += '<option value="'+value+'">'+value+'</option>';
       });
-    html += '<select name="fields[value]['+index+']">'+options+'</select>';
+    html += '<select id="form-'+field.id+'" name="fields[value]['+index+']" class="dochub-field">'+options+'</select>';
     html += '<input type="hidden" id="hidden-field-'+index+'" name="fields[title]['+index+']" value="#{title}" />'.interpolate(field);
     html += '</div>';
 

@@ -43,14 +43,27 @@
         field_type = type;
     });
     fields_array.push({
+      id: field.id,
       type: field_type,
       title: field.title,
-      value: field.innerHTML
+      value: ('select' != field_type) ? '' : field.innerHTML.split('::').invoke('strip')
     });
   });
 
   var fb = new FormBuilder();
 
   $('wizard').update(fb.setFields(fields_array).toHTML());
+  $('new_document').focusFirstElement();
+
+  function onFieldChange(element, value) {
+    field_id    = element.id.gsub(/(form-)/, '');
+    field_value = value.gsub(/(\n)/, '<br />');
+    if (null != $(field_id))
+      $(field_id).update(field_value);
+  };
+
+  $$('.dochub-field').each(function (field) {
+    new Form.Element.Observer(field, 0.2, onFieldChange);
+  });
 //]]>
 </script>

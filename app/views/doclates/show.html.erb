@@ -8,7 +8,7 @@
     <li><%= link_to 'Edit', edit_user_doclate_path(@user, @doclate), :class => 'icon edit' -%></li>
     <li><%= link_to 'Delete', user_doclate_path(@user, @doclate), { :method => :delete, :confirm => "Do you realy want to delete #{h(@doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
   <%- elsif logged_in? -%>
-    <li><%= link_to 'Copy', new_user_doclate_path(current_user, :parent_id => @doclate), :class => 'icon copy', :title => 'Create new doclate based on this one' -%></li>
+    <li><%= link_to 'Copy as your new doclate', new_user_doclate_path(current_user, :parent_id => @doclate), :class => 'icon copy', :title => 'Create new doclate based on this one' -%></li>
   <%- end -%>
     <li>
       <!-- AddThis Button BEGIN -->
