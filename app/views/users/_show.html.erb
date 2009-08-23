@@ -59,7 +59,7 @@
         <%- end -%>
       </ul>
       <%- else -%>
-      <p><%= is_owner?(user) ? 'You don\'t' : "#{user.username} doesn't" -%> have any favourite person yet.</p>
+        <p><%= is_owner?(user) ? 'You don\'t' : "#{user.username} doesn't" -%> have any favourite person yet.</p>
       <%- end -%>
       <h4>Followers</h4>
       <%- unless user.inverse_friendships.blank? -%>
