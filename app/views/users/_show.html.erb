@@ -15,17 +15,21 @@
   <div class="common-container">
     <div class="container-left-half-column">
       <%- unless user.doclates.blank? -%>
-      <dl>
-        <dt><span>Last updated doclates</span></dt>
-        <dd>
-          <ul>
-            <%- for doclate in (is_owner?(user) ? user.doclates : user.doclates.public).last_updated -%>
-            <li><%= link_to h(doclate.title), user_doclate_path(user, doclate) -%>, updated at <%= doclate.updated_at.strftime('%m/%d/%Y') -%></li>
-            <%- end -%>
-          </ul>
-        </dd>
-      </dl>
-      <p><%= link_to 'Add new doclate', new_user_doclate_path(user), :class => 'button' -%> or <%= link_to "View all (#{user.doclates_count})", user_doclates_path(user) -%></p>
+        <dl>
+          <dt><span>Last updated doclates</span></dt>
+          <dd>
+            <ul>
+              <%- for doclate in (is_owner?(user) ? user.doclates : user.doclates.public).last_updated -%>
+              <li><%= link_to h(doclate.title), user_doclate_path(user, doclate) -%>, updated at <%= doclate.updated_at.strftime('%m/%d/%Y') -%></li>
+              <%- end -%>
+            </ul>
+          </dd>
+        </dl>
+        <%- if is_owner?(user) -%>
+          <p><%= link_to 'Add new doclate', new_user_doclate_path(user), :class => 'button' -%> or <%= link_to "View all (#{user.doclates_count})", user_doclates_path(user) -%></p>
+        <%- else -%>
+          <p><%= link_to "View all (#{user.doclates_count})", user_doclates_path(user) -%></p>
+        <%- end -%>
       <%- else -%>
         <div class="message"><div class="body">
         <%- if is_owner?(user) -%>
