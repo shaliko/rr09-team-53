@@ -1,4 +1,5 @@
   <%- title "#{gravatar_tag(user)} #{user.username}" -%>
+  <%= javascript_include_tag 'swfobject.js' -%>
 
   <%- if current_user != user -%>
     <%- content_for :toolbox do -%>
@@ -31,14 +32,34 @@
           <p><%= link_to "View all (#{user.doclates_count})", user_doclates_path(user) -%></p>
         <%- end -%>
       <%- else -%>
-        <div class="message"><div class="body">
         <%- if is_owner?(user) -%>
-          You don't have any doclate yet.<br />
-          Try to <%= link_to 'add new one', new_user_doclate_path(current_user), :class => 'icon add' -%>
-        <%- else -%>
-          Looks like this user doesn't have any doclate yet.
+          <h3>How to create doclate?</h3>
+          <!-- START OF THE PLAYER EMBEDDING TO COPY-PASTE -->
+          <script type="text/javascript">
+          swfobject.registerObject("player","9.0.98","/images/expressInstall.swf");
+          </script>
+          <p>
+          <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="320" height="240">
+            <param name="movie" value="/images/player.swf" />
+            <param name="allowfullscreen" value="true" />
+            <param name="allowscriptaccess" value="always" />
+            <param name="flashvars" value="file=/images/create_doclate.flv" />
+            <object type="application/x-shockwave-flash" data="/images/player.swf" width="320" height="240">
+              <param name="movie" value="/images/player.swf" />
+              <param name="allowfullscreen" value="true" />
+              <param name="allowscriptaccess" value="always" />
+              <param name="flashvars" value="file=/images/create_doclate.flv" />
+              <p><a href="http://get.adobe.com/flashplayer">Get Flash</a> to see this player.</p>
+            </object>
+          </object>
+          </p>
+          <!-- END OF THE PLAYER EMBEDDING -->
+          <p>You don't have any doclate yet. Try to <%= link_to 'add new one', new_user_doclate_path(current_user), :class => 'icon add' -%></p>
+          <%- else -%>
+          <div class="message"><div class="body">
+            Looks like this user doesn't have any doclate yet.
+          </div></div>
         <%- end -%>
-        </div></div>
       <%- end -%>
 
       <%- if is_owner?(user) -%>
@@ -55,10 +76,28 @@
         </dl>
         <p><%= link_to "View all documents (#{user.documents_count})", user_documents_path(user) -%></p>
         <%- else -%>
-        <div class="message"><div class="body">
-          Looks like you don't have any document yet.<br />
-          <%= link_to 'Open', user_doclates_path(user) -%> or <%= link_to 'create one', new_user_doclate_path(user) -%> of your doclates and click "Create document".
-        </div></div>
+          <h3>Creating document</h3>
+          <!-- START OF THE PLAYER EMBEDDING TO COPY-PASTE -->
+          <script type="text/javascript">
+          swfobject.registerObject("player","9.0.98","/images/expressInstall.swf");
+          </script>
+          <p>
+          <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="320" height="240">
+            <param name="movie" value="/images/player.swf" />
+            <param name="allowfullscreen" value="true" />
+            <param name="allowscriptaccess" value="always" />
+            <param name="flashvars" value="file=/images/creating_document.flv" />
+            <object type="application/x-shockwave-flash" data="/images/player.swf" width="320" height="240">
+              <param name="movie" value="/images/player.swf" />
+              <param name="allowfullscreen" value="true" />
+              <param name="allowscriptaccess" value="always" />
+              <param name="flashvars" value="file=/images/creating_document.flv" />
+              <p><a href="http://get.adobe.com/flashplayer">Get Flash</a> to see this player.</p>
+            </object>
+          </object>
+          </p>
+          <!-- END OF THE PLAYER EMBEDDING -->
+          <p>Looks like you don't have any document yet. <%= link_to 'Open', user_doclates_path(user) -%> or <%= link_to 'create one', new_user_doclate_path(user) -%> of your doclates and click "Create document".</p>
         <%- end -%>
       <%- end -%>
     </div>

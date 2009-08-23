@@ -18,10 +18,31 @@
     </dl>
   </div>
   <div class="container-right-half-column">
+    <!-- START OF THE PLAYER EMBEDDING TO COPY-PASTE -->
+    <%= javascript_include_tag 'swfobject.js' -%>
+    <script type="text/javascript">
+    swfobject.registerObject("player","9.0.98","/images/expressInstall.swf");
+    </script>
+    <p>
+    <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="320" height="240">
+      <param name="movie" value="/images/player.swf" />
+      <param name="allowfullscreen" value="true" />
+      <param name="allowscriptaccess" value="always" />
+      <param name="flashvars" value="file=/images/create_doclate.flv" />
+      <object type="application/x-shockwave-flash" data="/images/player.swf" width="320" height="240">
+        <param name="movie" value="/images/player.swf" />
+        <param name="allowfullscreen" value="true" />
+        <param name="allowscriptaccess" value="always" />
+        <param name="flashvars" value="file=/images/create_doclate.flv" />
+        <p><a href="http://get.adobe.com/flashplayer">Get Flash</a> to see this player.</p>
+      </object>
+    </object>
+    </p>
+    <!-- END OF THE PLAYER EMBEDDING -->
     <p>With this service you can create documents using handy autofill function.</p>
 
-    <p>Any registered user can create doclate ("document template") with "magic fields", and then fill these fields with wizard. <em>Anytime.</em></p>
-    <p>Or any user can find doclate in public repository, copy them and use later.</p>
+    <p>Registered users can create doclate ("document template") with "magic fields", and then fill these fields with wizard. <em>Anytime.</em></p>
+    <p>Besides any user can find doclate in public repository, copy them and use later.</p>
     <p><%= link_to 'More info...', about_path -%></p>
   </div>
   <br class="clearboth" />

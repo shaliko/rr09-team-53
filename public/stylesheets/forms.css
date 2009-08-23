@@ -23,6 +23,9 @@
         -moz-border-radius:5px;
         -webkit-border-radius:5px;
         }
+        .errorExplanation ul li {
+            list-style:none outside none;
+        }
     .container-form fieldset {
       padding:0;
       margin-bottom:1em;

@@ -1,15 +1,30 @@
 <%- title 'About DocHub' -%>
 
-<p>DocHub&nbsp;&mdash; document templates repository with social features. With this service you can create documents using handy autofill function.</p>
+<%= stylesheet_link_tag 'lightwindow' -%>
+<%= javascript_include_tag 'lightwindow' -%>
+<div class="common-container">
+  <div class="container-left-column">
+    <p>DocHub&nbsp;&mdash; document templates repository with social features. With this service you can create documents using handy autofill function.</p>
 
+    <h3>Example</h3>
+    <p>
+      You create doclate of contract with fields "Name, Last name, Address".<br />
+      Then using wizard you fill this contract anytime.
+    </p>
 
-<p>Any registered user can create doclate ("document template") with "magic fields", and then fill these fields with wizard. <em>Anytime.</em></p>
-<p>Or any user can find doclate in public repository, copy them and use later.</p>
-
-<h3>Example</h3>
-<p>You create template of contract with fields "Name, Last name, Address". Then using wizard you fill this contract anytime.</p>
-
-<h3>More info</h3>
-<p>But it's not all!
-You can share your templates with other users or/and fork their templates too.
-You can follow for your favorite users and watch for their activities (using special news feed).</p>
+    <h3>More info</h3>
+    <p>
+      You can share your doclate with other users or/and fork their doclate too.<br />
+      You can follow your favorite users and watch their activities (using special news feed).
+    </p>
+  </div>
+  <div class="container-right-column">
+    <ul class="flat">
+      <li><a href="/images/screenshots/dashboard.gif" class="lightwindow" rel="[screenshot]"><%= image_tag('screenshots/thumb_dashboard.gif', :size => '150x150', :class => 'bordered-image') -%></a></li>
+      <li><a href="/images/screenshots/doclate.gif" class="lightwindow" rel="[screenshot]"><%= image_tag('screenshots/thumb_doclate.gif', :size => '150x150', :class => 'bordered-image') -%></a></li>
+      <li><a href="/images/screenshots/create_document.gif" class="lightwindow" rel="[screenshot]"><%= image_tag('screenshots/thumb_document.gif', :size => '150x150', :class => 'bordered-image') -%></a></li>
+      <li><a href="/images/screenshots/edit_doclate.gif" class="lightwindow" rel="[screenshot]"><%= image_tag('screenshots/thumb_edit_doclate.gif', :size => '150x150', :class => 'bordered-image') -%></a></li>
+    </ul>
+  </div>
+  <br class="clearboth" />
+</div>
