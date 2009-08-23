@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
 
   def feeds
-    Feed.all(:conditions => ["user_id IN (?)", self.friends], :include => [:user], :order => "created_at DESC")
+    Feed.all(:conditions => ["user_id IN (?)", self.friends], :include => [:user], :order => "created_at DESC", :limit => "10")
   end
 
   def deliver_password_reset_instructions!  

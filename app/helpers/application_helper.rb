@@ -24,4 +24,17 @@ module ApplicationHelper
     tag(:img, options)
   end
 
+  def feed_item(feed)
+    content = ''
+    content += link_to feed.user.username, user_path(feed.user)
+    content += " #{feed.event_type} "
+    if feed.subject.is_a?(Doclate)
+      content += link_to "\"#{feed.subject.title}\"", user_doclate_path(feed.subject.user, feed.subject) # if [Feed::Types::CREATE_DOCLATE, Feed::Types::UPDATE_DOCLATE].include?(feed.event_type)
+      #content += "\"#{feed.subject.title}\"" if feed.event_type == Feed::Types::DELETE_DOCLATE
+    elsif feed.subject.is_a?(User)
+      content += link_to feed.subject.username, user_path(feed.subject)
+    end
+    content += " #{feed.created_at.strftime("%b %d, %Y")} "
+  end
+
 end

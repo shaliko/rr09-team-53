@@ -1,7 +1,8 @@
 class Doclate < ActiveRecord::Base
   belongs_to  :user, :counter_cache => true
-  belongs_to  :parent, :class_name => 'Template', :foreign_key => 'id'
+  belongs_to  :parent, :class_name => 'Doclate', :foreign_key => 'id'
   has_many    :documents, :dependent => :destroy
+  has_many    :feeds, :as => :subject, :dependent => :destroy
 
   attr_accessible :title, :body_markdown, :private
 
