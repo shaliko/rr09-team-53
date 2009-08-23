@@ -58,4 +58,4 @@ ActionMailer::Base.smtp_settings = {
   :user_name        => 'no_reply@hashtrain.com',
   :password         => 'blbntyfabu'
 }
-ExceptionNotifier.exception_recipients = %w(soulim@gmail.com shaliko@ezid.ru)
+#ExceptionNotifier.exception_recipients = %w(soulim@gmail.com shaliko@ezid.ru)
