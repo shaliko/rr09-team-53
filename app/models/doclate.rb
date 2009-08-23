@@ -1,13 +1,14 @@
 class Doclate < ActiveRecord::Base
-  belongs_to :user, :counter_cache => true
-  belongs_to :parent, :class_name => 'Template', :foreign_key => 'id'
+  belongs_to  :user, :counter_cache => true
+  belongs_to  :parent, :class_name => 'Template', :foreign_key => 'id'
+  has_many    :documents, :dependent => :destroy
 
   attr_accessible :title, :body_markdown, :private
 
   validates_presence_of     :title, :body_markdown
   validates_length_of       :title, :maximum => 255
 
-  before_save :parse_markdown
+  before_save :generate_body_html
 
   named_scope :public, :conditions => {:private => false}
   named_scope :last_updated, :order => "updated_at DESC", :limit => 5
@@ -17,16 +18,16 @@ class Doclate < ActiveRecord::Base
   end
 
   private
-  def parse_markdown
-    self.body_html = replace_template_fields(Maruku.new(self.body_markdown).to_html)
+  def generate_body_html
+    self.body_html = replace_doclate_fields(Maruku.new(self.body_markdown).to_html)
   end
 
-  def replace_template_fields(str)
+  def replace_doclate_fields(str)
     index = 0
-    str.gsub(/[{]{2}([^{]+)[}]{2}/) { |s| index += 1; template_field_to_html(index, $1) }
+    str.gsub(/[{]{2}([^{]+)[}]{2}/) { |s| index += 1; doclate_field_to_html(index, $1) }
   end
 
-  def template_field_to_html(id, str)
+  def doclate_field_to_html(id, str)
     params = str.split('|').collect(&:strip)
 
     field_id      = id

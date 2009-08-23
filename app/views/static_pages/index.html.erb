@@ -1,5 +1,5 @@
 <%- unless logged_in? -%>
-  <%- title 'Welcome to document repository' -%>
+  <%- title 'Welcome to document templates repository' -%>
   <div class="container-left-half-column">
     <dl>
       <dt><span>Recently updated</span></dt>
@@ -17,6 +17,7 @@
 
     <p>Any registered user can create doclate ("document template") with "magic fields", and then fill these fields with wizard. <em>Anytime.</em></p>
     <p>Or any user can find doclate in public repository, copy them and use later.</p>
+    <p><%= link_to 'More info...', about_path -%></p>
   </div>
   <br class="clearboth" />
 <%- else -%>

@@ -4,8 +4,9 @@
   <ul>
     <li><%= link_to 'Back to list', user_doclates_path(@user), :class => 'icon back' -%></li>
   <%- if is_owner?(@user) -%>
+    <li><%= link_to 'Create document', new_user_document_path(@user, :doclate_id => @doclate), { :class => 'icon new-document', :title => 'Create document' } -%></li>
     <li><%= link_to 'Edit', edit_user_doclate_path(@user, @doclate), :class => 'icon edit' -%></li>
-    <li><%= link_to 'Delete', user_doclate_path(@user, @doclate), { :method => :delete, :confirm => "Do you realy want to delete #{html_escape(@doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
+    <li><%= link_to 'Delete', user_doclate_path(@user, @doclate), { :method => :delete, :confirm => "Do you realy want to delete #{h(@doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
   <%- end -%>
     <li>
       <!-- AddThis Button BEGIN -->

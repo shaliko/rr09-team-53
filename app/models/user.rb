@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :doclates, :dependent => :destroy
-  
+  has_many  :doclates, :dependent => :destroy
+  has_many  :documents, :dependent => :destroy
+
   is_gravtastic :email,
     :rating   => 'G',
     :default  => 'identicon',

@@ -13,10 +13,10 @@
   <table width="100%" cellpadding="0" cellspacing="0">
     <thead>
       <tr>
-        <th width="75%" align="left">Title</th>
+        <th width="70%" align="left">Title</th>
         <th width="5%"></th>
         <th width="10%">Updated</th>
-        <th width="10%">&nbsp;</th>
+        <th width="15%">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -27,8 +27,9 @@
           <td align="center"><%= doclate.updated_at.strftime('%m/%d/%Y') -%></td>
           <td align="right">
           <%- if is_owner?(@user) -%>
+            <%= link_to '&nbsp;', new_user_document_path(@user, :doclate_id => doclate), { :class => 'icon new-document', :title => 'Create document' } -%>
             <%= link_to '&nbsp;', edit_user_doclate_path(@user, doclate), { :class => 'icon edit', :title => 'Edit' } -%>
-            <%= link_to '&nbsp;', user_doclate_path(@user, doclate), { :method => :delete, :confirm => "Do you realy want to delete #{html_escape(doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%>
+            <%= link_to '&nbsp;', user_doclate_path(@user, doclate), { :method => :delete, :confirm => "Do you realy want to delete #{h(doclate.title)}?", :class => 'icon delete', :title => 'Delete' } -%>
           <%- end -%>
           </td>
         </tr>
@@ -38,7 +39,7 @@
 <%= will_paginate @doclates %>
 <%- else -%>
   <p class="text-center">
-    Oh! It's so sad but <%= is_owner?(@user) ? 'you' : @user.username -%> don't have any doclate yet.
+    Oh! It's so sad but <%= is_owner?(@user) ? 'you don\'t' : "#{@user.username} doesn't" -%> have any doclate yet.
   </p>
   <%- if is_owner?(@user) -%>
   <p class="text-center">Just <%= link_to 'add new one', new_user_doclate_path(@user), :class => 'icon add' -%>. It's easy and cool :)</p>

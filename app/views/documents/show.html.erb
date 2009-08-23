@@ -1,0 +1,17 @@
+<%- title "#{h(@document.title)}" -%>
+
+<%- content_for :toolbox do -%>
+  <ul>
+    <li><%= link_to 'Back to list', user_documents_path(@user), :class => 'icon back' -%></li>
+    <li><%= link_to 'Edit', edit_user_document_path(@user, @document), :class => 'icon edit' -%></li>
+    <li><%= link_to 'Delete', user_document_path(@user, @document), { :method => :delete, :confirm => "Do you realy want to delete #{h(@document.title)}?", :class => 'icon delete', :title => 'Delete' } -%></li>
+  </ul>
+<%- end -%>
+
+<div class="copyblock">
+  Based on &laquo;<%= link_to @document.doclate.title, [@user, @document.doclate] -%>&raquo;, you has updated this document at <%= @document.updated_at.to_s(:long) -%>
+</div>
+
+<div class="body_html">
+  <%= @document.body_html -%>
+</div>

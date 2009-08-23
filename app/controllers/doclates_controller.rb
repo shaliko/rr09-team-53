@@ -1,8 +1,8 @@
 class DoclatesController < ApplicationController
-  before_filter :find_user
-  before_filter :find_doclate,      :except => [:index, :new, :create]
   before_filter :require_user,      :except => [:index, :show]
+  before_filter :find_user
   before_filter :check_permissions, :except => [:index, :show]
+  before_filter :find_doclate,      :except => [:index, :new, :create]
 
   def index
     @doclates = (is_owner?(@user) ? @user.doclates.all : @user.doclates.public).paginate :page => params[:page]
@@ -55,6 +55,10 @@ class DoclatesController < ApplicationController
 
   def find_doclate
     @doclate = @user.doclates.find_by_id(params[:id])
+    if @doclate.blank?
+      flash[:error] = 'Doclate not found'
+      redirect_to user_doclates_path(@user)
+    end
   end
 
   def check_permissions

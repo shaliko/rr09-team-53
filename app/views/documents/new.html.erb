@@ -1,0 +1,51 @@
+<%- title 'New document' -%>
+
+<%- content_for :toolbox do -%>
+  <ul>
+    <li><%= link_to 'List documents', user_documents_path(@user), :class => 'icon back' -%></li>
+    <li><%= link_to 'Edit doclate', edit_user_doclate_path(@user, @doclate), :class => 'icon edit' -%></li>
+  </ul>
+<%- end -%>
+<div class="common-container">
+  <div class="container-left-column container-form">
+    <%- form_for @document, :url => user_documents_path(@user, :doclate_id => @doclate) do |f| -%>
+      <%= f.error_messages -%>
+      <fieldset>
+        <div>
+          <%= f.label :title, 'Document title' -%>
+          <%= f.text_field :title, :class => 'fullwidth' -%>
+        </div>
+        <div id="wizard" style="padding:0;margin:0;"></div>
+      </fieldset>
+      <div class="buttonrow">
+        <%= f.submit 'Create' -%> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
+      </div>
+    <%- end -%>
+  </div>
+  <div class="container-right-column body_html">
+    <%= @document.doclate.body_html -%>
+  </div>
+  <br class="clearboth" />
+</div>
+<%= javascript_include_tag 'form_builder' -%>
+<script type="text/javascript">
+//<![CDATA[
+  var fields_array = [];
+  $$('span.dochub-placeholder').each(function (field) {
+    field_type = '';
+    ['text', 'textarea', 'select'].each(function (type) {
+      if (field.hasClassName(type))
+        field_type = type;
+    });
+    fields_array.push({
+      type: field_type,
+      title: field.title,
+      value: field.innerHTML
+    });
+  });
+
+  var fb = new FormBuilder();
+
+  $('wizard').update(fb.setFields(fields_array).toHTML());
+//]]>
+</script>

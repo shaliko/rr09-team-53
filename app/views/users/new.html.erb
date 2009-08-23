@@ -4,12 +4,16 @@
 <%- form_for @user do |f| -%>
   <%= f.error_messages -%>
   <%- if @user.openid_identifier.blank? -%>
-    <%= render :partial => "form", :locals => { :f => f } -%>
-    <div class="buttonrow">
-      <%= f.submit "Submit" %> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
+  <div class="common-container">
+    <div class="container-left-column">
+      <%= render :partial => "form", :locals => { :f => f } -%>
+      <div class="buttonrow">
+        <%= f.submit "Submit" %>
+      </div>
     </div>
+    <div class="container-right-column">
 
-    <fieldset>
+    <fieldset style="height:220px;">
       <legend>Or use OpenID</legend>
       <div>
         <%= f.label :openid_identifier, "OpenID URL" -%>
@@ -17,8 +21,11 @@
       </div>
     </fieldset>
     <div class="buttonrow">
-      <%= f.submit "Submit" -%> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
+      <%= f.submit "Submit" -%>
     </div>
+    </div>
+    <br class="clearboth" />
+  </div>
   <% end %>
 <% end %>
 </div>

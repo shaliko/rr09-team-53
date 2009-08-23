@@ -3,29 +3,36 @@
 <div class="container-form">
 <% form_for @user_session do |f| %>
   <%= f.error_messages %>
-  <fieldset>
-    <div class="required">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+  <div class="common-container">
+    <div class="container-left-column">
+      <fieldset style="height:150px;">
+        <legend>Classic way</legend>
+        <div class="required">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+        <div class="required">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
+      </fieldset>
+      <div class="buttonrow">
+        <%= f.submit "Submit" %>
+      </div>
     </div>
-    <div class="required">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+    <div class="container-right-column">
+      <fieldset style="height:150px;">
+        <legend>Use OpenID</legend>
+        <div class="required">
+          <%= f.label :openid_identifier, "OpenID URL" %>
+          <%= f.text_field :openid_identifier %>
+        </div>
+      </fieldset>
+      <div class="buttonrow">
+        <%= f.submit "Submit" %>
+      </div>
     </div>
-  </fieldset>
-  <div class="buttonrow">
-    <%= f.submit "Submit" %> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
-  </div>
-
-  <fieldset>
-    <legend>Or use OpenID</legend>
-    <div class="required">
-      <%= f.label :openid_identifier, "OpenID URL" %>
-      <%= f.text_field :openid_identifier %>
-    </div>
-  </fieldset>
-  <div class="buttonrow">
-    <%= f.submit "Submit" %> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
+    <br class="clearboth" />
   </div>
 <% end %>
 </div>

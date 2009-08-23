@@ -1,0 +1,24 @@
+<%- title 'Document' -%>
+
+<div class="container-form">
+  <%- form_for [@user, @document] do |f| -%>
+    <%= f.error_messages -%>
+    <fieldset>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title, :size => 20, :class => 'fullwidth' -%>
+      </div>
+      <div>
+        <%= f.label :body_markdown %>
+        <%= f.text_area :body_markdown, :size => '70x20', :class => 'fullwidth' -%>
+      </div>
+    </fieldset>
+    <div class="buttonrow">
+      <%= submit_tag 'Update' -%> or <%= link_to 'Cancel', :back, :class => 'negative' -%>
+    </div>
+  <%- end -%>
+</div>
+<%= javascript_include_tag 'texpand' -%>
+<script type="text/javascript">
+  new Texpand('document_body_markdown', {expandOnLoad: true});
+</script>
