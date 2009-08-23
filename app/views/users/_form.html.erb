@@ -7,12 +7,14 @@
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
-  <div class="required">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="required">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
+  <%- if @user.openid_identifier.blank? -%>
+    <div class="required">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="required">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+  <% end %>
 </fieldset>

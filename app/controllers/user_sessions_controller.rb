@@ -1,10 +1,18 @@
 class UserSessionsController < ApplicationController
+  before_filter :require_user,        :only => [:destroy]
+  before_filter :require_no_user,     :only => [:new, :create]
+
   def new
     @user_session = UserSession.new
   end
   
   def create
-    @user_session = UserSession.new(params[:user_session])
+    if params[:user_session] && params[:user_session][:openid_identifier]
+      @user_session = UserSession.new({ :openid_identifier => params[:user_session][:openid_identifier]})
+    else
+      @user_session = UserSession.new(params[:user_session])
+    end
+
     @user_session.save do |result|
       if result
         flash[:notice] = "Successfully logged in"
@@ -14,7 +22,6 @@ class UserSessionsController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @user_session = UserSession.find
