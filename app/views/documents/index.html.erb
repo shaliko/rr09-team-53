@@ -24,6 +24,8 @@
   </table>
 <%= will_paginate @documents %>
 <%- else -%>
-  <p class="text-center">Looks like you don't have any document yet.</p>
-  <p class="text-center">But it's not problem ;) <%= link_to 'Open', user_doclates_path(@user) -%> or <%= link_to 'create one', new_user_doclate_path(@user) -%> of your and click "Create document". It's fun!</p>
+  <div class="message"><div class="body">
+  Looks like you don't have any document yet.<br />
+  But it's not problem ;) <%= link_to 'Open', user_doclates_path(@user) -%> or <%= link_to 'create one', new_user_doclate_path(@user) -%> of your and click "Create document". It's fun!
+  </div></div>
 <%- end -%>

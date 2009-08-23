@@ -24,7 +24,7 @@ class Doclate < ActiveRecord::Base
   }
 
   def self.per_page
-    3
+    20
   end
 
   private

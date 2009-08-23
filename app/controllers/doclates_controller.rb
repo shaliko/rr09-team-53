@@ -6,7 +6,7 @@ class DoclatesController < ApplicationController
   before_filter :find_parent_doclate, :only   => [:new, :create]
 
   def index
-    @doclates = (is_owner?(@user) ? @user.doclates.all : @user.doclates.public).paginate :page => params[:page]
+    @doclates = (is_owner?(@user) ? @user.doclates : @user.doclates.public).paginate :page => params[:page]
   end
 
   def show

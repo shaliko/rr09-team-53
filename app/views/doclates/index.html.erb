@@ -38,10 +38,10 @@
   </table>
 <%= will_paginate @doclates %>
 <%- else -%>
-  <p class="text-center">
+  <div class="message"><div class="body">
     Oh! It's so sad but <%= is_owner?(@user) ? 'you don\'t' : "#{@user.username} doesn't" -%> have any doclate yet.
-  </p>
   <%- if is_owner?(@user) -%>
-  <p class="text-center">Just <%= link_to 'add new one', new_user_doclate_path(@user), :class => 'icon add' -%>. It's easy and cool :)</p>
+    <br />Just <%= link_to 'add new one', new_user_doclate_path(@user), :class => 'icon add' -%>. It's easy and cool :)
   <%- end -%>
+  </div></div>
 <%- end -%>

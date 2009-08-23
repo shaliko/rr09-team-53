@@ -23,12 +23,14 @@
       </dl>
       <p><%= link_to 'Add new doclate', new_user_doclate_path(user), :class => 'button' -%> or <%= link_to "View all (#{user.doclates_count})", user_doclates_path(user) -%></p>
       <%- else -%>
+        <div class="message"><div class="body">
         <%- if is_owner?(user) -%>
-          <p>You don't have any doclate yet.</p>
-          <p>Try to <%= link_to 'add new one', new_user_doclate_path(current_user), :class => 'button' -%></p>
+          You don't have any doclate yet.<br />
+          Try to <%= link_to 'add new one', new_user_doclate_path(current_user), :class => 'icon add' -%>
         <%- else -%>
-          <p>Looks like this user doesn't have any doclate yet.</p>
+          Looks like this user doesn't have any doclate yet.
         <%- end -%>
+        </div></div>
       <%- end -%>
 
       <%- if is_owner?(user) -%>
@@ -45,8 +47,10 @@
         </dl>
         <p><%= link_to "View all documents (#{user.documents_count})", user_documents_path(user) -%></p>
         <%- else -%>
-        <p>Looks like you don't have any document yet.</p>
-        <p>But it's not a problem ;) <%= link_to 'Open', user_doclates_path(user) -%> or <%= link_to 'create one', new_user_doclate_path(user) -%> of your and click "Create document". It's fun!</p>
+        <div class="message"><div class="body">
+          Looks like you don't have any document yet.<br />
+          <%= link_to 'Open', user_doclates_path(user) -%> or <%= link_to 'create one', new_user_doclate_path(user) -%> of your doclates and click "Create document".
+        </div></div>
         <%- end -%>
       <%- end -%>
     </div>
