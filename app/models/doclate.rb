@@ -3,6 +3,7 @@ class Doclate < ActiveRecord::Base
   has_many    :copies, :dependent => :destroy
   has_one     :parental_link, :class_name => 'Copy', :foreign_key => 'copy_id'
   has_one     :parent, :through => :parental_link, :source => :doclate
+  has_many    :feeds, :as => :subject, :dependent => :destroy
   has_many    :documents
 
   attr_accessible :title, :body_markdown, :private

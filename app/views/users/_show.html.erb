@@ -54,17 +54,17 @@
       <h4>Following</h4>
       <%- unless user.friendships.blank? -%>
       <ul class="flat">
-        <%- for friendship in user.friendships -%>
+        <%- for friendship in user.friendships.find(:all, :limit => 10) -%>
           <li><%= gravatar_link_to(friendship.friend, {:size => 24}) -%></li>
         <%- end -%>
       </ul>
       <%- else -%>
-      <p><%= is_owner?(user) ? 'You don\'t' : "#{user.username} doesn't" -%> have any favourite person yet.</p>
+        <p><%= is_owner?(user) ? 'You don\'t' : "#{user.username} doesn't" -%> have any favourite person yet.</p>
       <%- end -%>
       <h4>Followers</h4>
       <%- unless user.inverse_friendships.blank? -%>
       <ul class="flat">
-        <% for friendship in user.inverse_friendships %>
+        <% for friendship in user.inverse_friendships.find(:all, :limit => 10) %>
           <li><%= gravatar_link_to(friendship.user, {:size => 24}) -%></li>
         <%- end -%>
       </ul>
@@ -75,16 +75,7 @@
       <p>List of activities of followed users.</p>
       <ul>
         <% for feed in user.feeds %>
-          <li>
-            <%= link_to feed.user.username, user_path(feed.user) -%>
-            <%= feed.event_type -%>
-            <% if feed.subject.is_a?(Doclate) %>
-              <%= link_to "\"#{feed.subject.title}\"", user_doclate_path(feed.subject.user, feed.subject) -%>
-            <% elsif feed.subject.is_a?(User) %>
-              <%= link_to feed.subject.username, user_path(feed.subject) -%>
-            <% end %>
-            <%= feed.created_at.strftime("%b %d, %Y") -%>
-          </li>
+          <li><%= feed_item(feed) %></li>
         <% end  %>
       </ul>
     </div>
